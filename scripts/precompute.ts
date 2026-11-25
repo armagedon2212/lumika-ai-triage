@@ -3,6 +3,7 @@
  * Uruchomienie: npm run precompute   (wymaga ANTHROPIC_API_KEY w .env.local)
  * Opcje: --only m001,m046   — przelicza tylko wskazane maile, resztę zostawia z poprzedniego pliku.
  */
+import Anthropic from "@anthropic-ai/sdk";
 import fs from "node:fs";
 import path from "node:path";
 import emailsData from "../data/emails.json";
@@ -24,11 +25,12 @@ async function main() {
   console.log(`Triage ${todo.length} maili modelem ${TRIAGE_MODEL}…`);
 
   let done = 0;
+  let fatal: string | null = null;
   const failures: string[] = [];
   const queue = [...todo];
   await Promise.all(
     Array.from({ length: CONCURRENCY }, async () => {
-      while (queue.length) {
+      while (queue.length && !fatal) {
         const email = queue.shift()!;
         try {
           const r = await triageEmail({ from: email.from, subject: email.subject, body: email.body });
@@ -39,11 +41,25 @@ async function main() {
           );
         } catch (err) {
           failures.push(email.id);
+          // Błędy konta (klucz, uprawnienia, brak środków) — nie ma sensu próbować kolejnych maili.
+          if (
+            err instanceof Anthropic.AuthenticationError ||
+            err instanceof Anthropic.PermissionDeniedError ||
+            (err instanceof Anthropic.BadRequestError && /credit balance/i.test(err.message))
+          ) {
+            fatal = err.message;
+          }
           console.error(`✗ ${email.id}:`, err instanceof Error ? err.message : err);
         }
       }
     }),
   );
+
+  if (fatal) {
+    console.error(`\nPrzerwano: problem z kontem Claude API — ${fatal}\nNie zapisano data/results.json.`);
+    process.exitCode = 1;
+    return;
+  }
 
   const results = emails.map((e) => byId.get(e.id)).filter((r) => r !== undefined);
   const file: ResultsFile = { generatedAt: new Date().toISOString(), model: TRIAGE_MODEL, results };
