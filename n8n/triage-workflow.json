@@ -1,0 +1,146 @@
+{
+  "name": "Lumika — AI-triage skrzynki (Gmail → /api/triage → Gmail/Slack)",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": { "item": [{ "mode": "everyMinute" }] },
+        "simple": false,
+        "filters": { "labelIds": ["INBOX"] },
+        "options": {}
+      },
+      "id": "a1f0c6c2-1111-4c1a-9a01-000000000001",
+      "name": "Gmail Trigger",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 300],
+      "credentials": { "gmailOAuth2": { "id": "", "name": "Gmail — skrzynka obsługi" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://TWOJA-APLIKACJA.vercel.app/api/triage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ from: $json.from.value[0].address, subject: $json.subject, body: ($json.text || '').slice(0, 3000) }) }}",
+        "options": { "timeout": 60000 }
+      },
+      "id": "a1f0c6c2-2222-4c1a-9a01-000000000002",
+      "name": "AI triage (POST /api/triage)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [260, 300],
+      "credentials": { "httpHeaderAuth": { "id": "", "name": "Lumika x-triage-secret" } }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+                "conditions": [
+                  { "leftValue": "={{ $json.route }}", "rightValue": "auto", "operator": { "type": "string", "operation": "equals" } }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "auto"
+            },
+            {
+              "conditions": {
+                "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+                "conditions": [
+                  { "leftValue": "={{ $json.route }}", "rightValue": "review", "operator": { "type": "string", "operation": "equals" } }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "review"
+            },
+            {
+              "conditions": {
+                "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+                "conditions": [
+                  { "leftValue": "={{ $json.route }}", "rightValue": "escalate", "operator": { "type": "string", "operation": "equals" } }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "escalate"
+            }
+          ]
+        },
+        "options": { "fallbackOutput": "extra" }
+      },
+      "id": "a1f0c6c2-3333-4c1a-9a01-000000000003",
+      "name": "Switch: ścieżka",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "emailType": "text",
+        "message": "={{ $json.triage.draftReply }}",
+        "options": { "appendAttribution": false }
+      },
+      "id": "a1f0c6c2-4444-4c1a-9a01-000000000004",
+      "name": "auto → odpowiedz w Gmailu",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [800, 120],
+      "credentials": { "gmailOAuth2": { "id": "", "name": "Gmail — skrzynka obsługi" } }
+    },
+    {
+      "parameters": {
+        "resource": "draft",
+        "subject": "=Re: {{ $('Gmail Trigger').item.json.subject }}",
+        "emailType": "text",
+        "message": "={{ $json.triage.draftReply }}",
+        "options": {
+          "threadId": "={{ $('Gmail Trigger').item.json.threadId }}",
+          "sendTo": "={{ $('Gmail Trigger').item.json.from.value[0].address }}"
+        }
+      },
+      "id": "a1f0c6c2-5555-4c1a-9a01-000000000005",
+      "name": "review → szkic w Gmailu",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [800, 300],
+      "credentials": { "gmailOAuth2": { "id": "", "name": "Gmail — skrzynka obsługi" } }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": { "__rl": true, "mode": "name", "value": "#obsluga-eskalacje" },
+        "text": "=:rotating_light: *Eskalacja* — {{ $('Gmail Trigger').item.json.subject }}\nOd: {{ $('Gmail Trigger').item.json.from.value[0].address }}\nKategoria: {{ $json.triage.category }} · priorytet: {{ $json.triage.priority }} · nastrój: {{ $json.triage.sentiment }}\nFlagi: {{ $json.triage.flags.join(', ') || 'brak' }}\nPowody: {{ $json.reasons.join('; ') }}\n> {{ $json.triage.summary }}",
+        "otherOptions": {}
+      },
+      "id": "a1f0c6c2-6666-4c1a-9a01-000000000006",
+      "name": "escalate → Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [800, 480],
+      "credentials": { "slackOAuth2Api": { "id": "", "name": "Slack — obsługa" } }
+    }
+  ],
+  "connections": {
+    "Gmail Trigger": { "main": [[{ "node": "AI triage (POST /api/triage)", "type": "main", "index": 0 }]] },
+    "AI triage (POST /api/triage)": { "main": [[{ "node": "Switch: ścieżka", "type": "main", "index": 0 }]] },
+    "Switch: ścieżka": {
+      "main": [
+        [{ "node": "auto → odpowiedz w Gmailu", "type": "main", "index": 0 }],
+        [{ "node": "review → szkic w Gmailu", "type": "main", "index": 0 }],
+        [{ "node": "escalate → Slack", "type": "main", "index": 0 }],
+        [{ "node": "review → szkic w Gmailu", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": { "templateCredsSetupCompleted": false }
+}

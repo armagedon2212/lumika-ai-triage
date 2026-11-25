@@ -1,0 +1,1117 @@
+[
+  {
+    "id": "LM-10001",
+    "createdAt": "2026-10-10",
+    "customer": {
+      "name": "Anna Nowak",
+      "email": "anna.nowak@example.com"
+    },
+    "items": [
+      {
+        "name": "Zestaw ręczników (4 szt.)",
+        "qty": 1,
+        "price": 89
+      }
+    ],
+    "shipping": 14.99,
+    "total": 103.99,
+    "status": "przyjete",
+    "carrier": "DPD",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Polna 16, Białystok"
+  },
+  {
+    "id": "LM-10002",
+    "createdAt": "2026-10-11",
+    "customer": {
+      "name": "Piotr Szymański",
+      "email": "piotr.szymanski@example.com"
+    },
+    "items": [
+      {
+        "name": "Zestaw ręczników (4 szt.)",
+        "qty": 1,
+        "price": 89
+      },
+      {
+        "name": "Smartwatch Fitly 3",
+        "qty": 1,
+        "price": 499
+      }
+    ],
+    "shipping": 0,
+    "total": 588,
+    "status": "wyslane",
+    "carrier": "Poczta Polska",
+    "trackingNumber": "POC645202863",
+    "shippedAt": "2026-10-12",
+    "deliveredAt": null,
+    "shippingAddress": "ul. Słoneczna 20, Kraków"
+  },
+  {
+    "id": "LM-10003",
+    "createdAt": "2026-10-12",
+    "customer": {
+      "name": "Katarzyna Piotrowska",
+      "email": "katarzyna.piotrowska@example.com"
+    },
+    "items": [
+      {
+        "name": "Smartwatch Fitly 3",
+        "qty": 1,
+        "price": 499
+      }
+    ],
+    "shipping": 0,
+    "total": 499,
+    "status": "dostarczone",
+    "carrier": "DHL",
+    "trackingNumber": "DHL684445391",
+    "shippedAt": "2026-10-13",
+    "deliveredAt": "2026-10-15",
+    "shippingAddress": "ul. Ogrodowa 7, Łódź"
+  },
+  {
+    "id": "LM-10004",
+    "createdAt": "2026-10-13",
+    "customer": {
+      "name": "Tomasz Kowalski",
+      "email": "tomasz.kowalski@example.com"
+    },
+    "items": [
+      {
+        "name": "Sweter wełniany oversize",
+        "qty": 1,
+        "price": 219
+      }
+    ],
+    "shipping": 0,
+    "total": 219,
+    "status": "dostarczone",
+    "carrier": "DPD",
+    "trackingNumber": "DPD645000496",
+    "shippedAt": "2026-10-14",
+    "deliveredAt": "2026-10-16",
+    "shippingAddress": "ul. Słoneczna 1, Warszawa"
+  },
+  {
+    "id": "LM-10005",
+    "createdAt": "2026-10-14",
+    "customer": {
+      "name": "Magdalena Woźniak",
+      "email": "magdalena.wozniak@example.com"
+    },
+    "items": [
+      {
+        "name": "Szalik z wełny merino",
+        "qty": 1,
+        "price": 99
+      },
+      {
+        "name": "Robot sprzątający Vacu S2",
+        "qty": 1,
+        "price": 1299
+      },
+      {
+        "name": "Ekspres przelewowy Morning",
+        "qty": 1,
+        "price": 349
+      }
+    ],
+    "shipping": 0,
+    "total": 1747,
+    "status": "przyjete",
+    "carrier": "DPD",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Słoneczna 29, Lublin"
+  },
+  {
+    "id": "LM-10006",
+    "createdAt": "2026-10-15",
+    "customer": {
+      "name": "Michał Grabowski",
+      "email": "michal.grabowski@example.com"
+    },
+    "items": [
+      {
+        "name": "Powerbank 20 000 mAh",
+        "qty": 1,
+        "price": 129
+      },
+      {
+        "name": "Głośnik Bluetooth Tuba Mini",
+        "qty": 1,
+        "price": 189
+      }
+    ],
+    "shipping": 0,
+    "total": 318,
+    "status": "wyslane",
+    "carrier": "DPD",
+    "trackingNumber": "DPD619278066",
+    "shippedAt": "2026-10-16",
+    "deliveredAt": null,
+    "shippingAddress": "ul. Lipowa 79, Łódź"
+  },
+  {
+    "id": "LM-10007",
+    "createdAt": "2026-10-16",
+    "customer": {
+      "name": "Agnieszka Wiśniewska",
+      "email": "agnieszka.wisniewska@example.com"
+    },
+    "items": [
+      {
+        "name": "Koszula lniana",
+        "qty": 1,
+        "price": 189
+      }
+    ],
+    "shipping": 14.99,
+    "total": 203.99,
+    "status": "dostarczone",
+    "carrier": "DHL",
+    "trackingNumber": "DHL618674026",
+    "shippedAt": "2026-10-17",
+    "deliveredAt": "2026-10-19",
+    "shippingAddress": "ul. Leśna 80, Kraków"
+  },
+  {
+    "id": "LM-10008",
+    "createdAt": "2026-10-18",
+    "customer": {
+      "name": "Paweł Dąbrowski",
+      "email": "pawel.dabrowski@example.com"
+    },
+    "items": [
+      {
+        "name": "Komplet pościeli bawełnianej 160x200",
+        "qty": 1,
+        "price": 229
+      },
+      {
+        "name": "Jeansy slim fit",
+        "qty": 1,
+        "price": 199
+      },
+      {
+        "name": "Sneakersy miejskie Flow",
+        "qty": 1,
+        "price": 259
+      }
+    ],
+    "shipping": 0,
+    "total": 687,
+    "status": "dostarczone",
+    "carrier": "InPost Paczkomat",
+    "trackingNumber": "INP602969798",
+    "shippedAt": "2026-10-19",
+    "deliveredAt": "2026-10-21",
+    "shippingAddress": "ul. Lipowa 51, Poznań"
+  },
+  {
+    "id": "LM-10009",
+    "createdAt": "2026-10-19",
+    "customer": {
+      "name": "Joanna Pawłowska",
+      "email": "joanna.pawlowska@example.com"
+    },
+    "items": [
+      {
+        "name": "Zestaw ręczników (4 szt.)",
+        "qty": 1,
+        "price": 89
+      }
+    ],
+    "shipping": 14.99,
+    "total": 103.99,
+    "status": "przyjete",
+    "carrier": "InPost Paczkomat",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Kwiatowa 28, Katowice"
+  },
+  {
+    "id": "LM-10010",
+    "createdAt": "2026-10-20",
+    "customer": {
+      "name": "Krzysztof Wójcik",
+      "email": "krzysztof.wojcik@example.com"
+    },
+    "items": [
+      {
+        "name": "Kurtka przejściowa damska",
+        "qty": 2,
+        "price": 299
+      }
+    ],
+    "shipping": 0,
+    "total": 598,
+    "status": "zwrocone",
+    "carrier": "DPD",
+    "trackingNumber": "DPD644082354",
+    "shippedAt": "2026-10-21",
+    "deliveredAt": "2026-10-23",
+    "shippingAddress": "ul. Kwiatowa 38, Białystok"
+  },
+  {
+    "id": "LM-10011",
+    "createdAt": "2026-10-21",
+    "customer": {
+      "name": "Monika Kozłowska",
+      "email": "monika.kozlowska@example.com"
+    },
+    "items": [
+      {
+        "name": "Sneakersy miejskie Flow",
+        "qty": 2,
+        "price": 259
+      }
+    ],
+    "shipping": 0,
+    "total": 518,
+    "status": "dostarczone",
+    "carrier": "DHL",
+    "trackingNumber": "DHL655749548",
+    "shippedAt": "2026-10-22",
+    "deliveredAt": "2026-10-24",
+    "shippingAddress": "ul. Ogrodowa 43, Poznań"
+  },
+  {
+    "id": "LM-10012",
+    "createdAt": "2026-10-22",
+    "customer": {
+      "name": "Marcin Michalski",
+      "email": "marcin.michalski@example.com"
+    },
+    "items": [
+      {
+        "name": "Ładowarka USB-C 65 W",
+        "qty": 1,
+        "price": 119
+      },
+      {
+        "name": "Robot sprzątający Vacu S2",
+        "qty": 1,
+        "price": 1299
+      }
+    ],
+    "shipping": 0,
+    "total": 1418,
+    "status": "dostarczone",
+    "carrier": "InPost Paczkomat",
+    "trackingNumber": "INP648976356",
+    "shippedAt": "2026-10-23",
+    "deliveredAt": "2026-10-25",
+    "shippingAddress": "ul. Polna 1, Katowice"
+  },
+  {
+    "id": "LM-10013",
+    "createdAt": "2026-10-23",
+    "customer": {
+      "name": "Ewa Kamińska",
+      "email": "ewa.kaminska@example.com"
+    },
+    "items": [
+      {
+        "name": "Lampka biurkowa LED Arc",
+        "qty": 2,
+        "price": 139
+      },
+      {
+        "name": "Smartwatch Fitly 3",
+        "qty": 1,
+        "price": 499
+      }
+    ],
+    "shipping": 0,
+    "total": 777,
+    "status": "przyjete",
+    "carrier": "DPD",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Polna 20, Poznań"
+  },
+  {
+    "id": "LM-10014",
+    "createdAt": "2026-10-24",
+    "customer": {
+      "name": "Jakub Jankowski",
+      "email": "jakub.jankowski@example.com"
+    },
+    "items": [
+      {
+        "name": "Szalik z wełny merino",
+        "qty": 1,
+        "price": 99
+      },
+      {
+        "name": "Patelnia granitowa 28 cm",
+        "qty": 1,
+        "price": 119
+      },
+      {
+        "name": "Zestaw ręczników (4 szt.)",
+        "qty": 1,
+        "price": 89
+      }
+    ],
+    "shipping": 0,
+    "total": 307,
+    "status": "wyslane",
+    "carrier": "DPD",
+    "trackingNumber": "DPD612880421",
+    "shippedAt": "2026-10-25",
+    "deliveredAt": null,
+    "shippingAddress": "ul. Ogrodowa 32, Warszawa"
+  },
+  {
+    "id": "LM-10015",
+    "createdAt": "2026-10-26",
+    "customer": {
+      "name": "Natalia Król",
+      "email": "natalia.krol@example.com"
+    },
+    "items": [
+      {
+        "name": "Czajnik elektryczny Stal 1,7 l",
+        "qty": 1,
+        "price": 159
+      },
+      {
+        "name": "Komplet pościeli bawełnianej 160x200",
+        "qty": 1,
+        "price": 229
+      }
+    ],
+    "shipping": 0,
+    "total": 388,
+    "status": "dostarczone",
+    "carrier": "DHL",
+    "trackingNumber": "DHL620421755",
+    "shippedAt": "2026-10-27",
+    "deliveredAt": "2026-10-29",
+    "shippingAddress": "ul. Słoneczna 80, Kraków"
+  },
+  {
+    "id": "LM-10016",
+    "createdAt": "2026-10-27",
+    "customer": {
+      "name": "Bartosz Lewandowski",
+      "email": "bartosz.lewandowski@example.com"
+    },
+    "items": [
+      {
+        "name": "Zestaw ręczników (4 szt.)",
+        "qty": 1,
+        "price": 89
+      },
+      {
+        "name": "Smartwatch Fitly 3",
+        "qty": 1,
+        "price": 499
+      }
+    ],
+    "shipping": 0,
+    "total": 588,
+    "status": "dostarczone",
+    "carrier": "InPost Paczkomat",
+    "trackingNumber": "INP629881407",
+    "shippedAt": "2026-10-28",
+    "deliveredAt": "2026-10-30",
+    "shippingAddress": "ul. Słoneczna 77, Katowice"
+  },
+  {
+    "id": "LM-10017",
+    "createdAt": "2026-10-28",
+    "customer": {
+      "name": "Aleksandra Mazur",
+      "email": "aleksandra.mazur@example.com"
+    },
+    "items": [
+      {
+        "name": "Zestaw ręczników (4 szt.)",
+        "qty": 1,
+        "price": 89
+      },
+      {
+        "name": "Komplet pościeli bawełnianej 160x200",
+        "qty": 1,
+        "price": 229
+      }
+    ],
+    "shipping": 0,
+    "total": 318,
+    "status": "przyjete",
+    "carrier": "DPD",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Polna 35, Poznań"
+  },
+  {
+    "id": "LM-10018",
+    "createdAt": "2026-10-29",
+    "customer": {
+      "name": "Łukasz Wieczorek",
+      "email": "lukasz.wieczorek@example.com"
+    },
+    "items": [
+      {
+        "name": "Smartwatch Fitly 3",
+        "qty": 1,
+        "price": 499
+      },
+      {
+        "name": "Lampka biurkowa LED Arc",
+        "qty": 1,
+        "price": 139
+      }
+    ],
+    "shipping": 0,
+    "total": 638,
+    "status": "wyslane",
+    "carrier": "DPD",
+    "trackingNumber": "DPD653651405",
+    "shippedAt": "2026-10-30",
+    "deliveredAt": null,
+    "shippingAddress": "ul. Słoneczna 70, Białystok"
+  },
+  {
+    "id": "LM-10019",
+    "createdAt": "2026-10-30",
+    "customer": {
+      "name": "Zofia Zielińska",
+      "email": "zofia.zielinska@example.com"
+    },
+    "items": [
+      {
+        "name": "Sneakersy miejskie Flow",
+        "qty": 1,
+        "price": 259
+      },
+      {
+        "name": "Zestaw ręczników (4 szt.)",
+        "qty": 1,
+        "price": 89
+      },
+      {
+        "name": "Plecak miejski 22 l",
+        "qty": 1,
+        "price": 169
+      }
+    ],
+    "shipping": 0,
+    "total": 517,
+    "status": "dostarczone",
+    "carrier": "Poczta Polska",
+    "trackingNumber": "POC634423920",
+    "shippedAt": "2026-10-31",
+    "deliveredAt": "2026-11-02",
+    "shippingAddress": "ul. Leśna 54, Szczecin"
+  },
+  {
+    "id": "LM-10020",
+    "createdAt": "2026-10-31",
+    "customer": {
+      "name": "Grzegorz Krawczyk",
+      "email": "grzegorz.krawczyk@example.com"
+    },
+    "items": [
+      {
+        "name": "Kurtka przejściowa damska",
+        "qty": 2,
+        "price": 299
+      }
+    ],
+    "shipping": 0,
+    "total": 598,
+    "status": "zwrocone",
+    "carrier": "Poczta Polska",
+    "trackingNumber": "POC613032481",
+    "shippedAt": "2026-11-01",
+    "deliveredAt": "2026-11-03",
+    "shippingAddress": "ul. Polna 4, Łódź"
+  },
+  {
+    "id": "LM-10021",
+    "createdAt": "2026-11-02",
+    "customer": {
+      "name": "Anna Nowak",
+      "email": "anna.nowak@example.com"
+    },
+    "items": [
+      {
+        "name": "Zestaw ręczników (4 szt.)",
+        "qty": 1,
+        "price": 89
+      }
+    ],
+    "shipping": 14.99,
+    "total": 103.99,
+    "status": "przyjete",
+    "carrier": "Poczta Polska",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Słoneczna 18, Poznań"
+  },
+  {
+    "id": "LM-10022",
+    "createdAt": "2026-11-03",
+    "customer": {
+      "name": "Piotr Szymański",
+      "email": "piotr.szymanski@example.com"
+    },
+    "items": [
+      {
+        "name": "Lampka biurkowa LED Arc",
+        "qty": 2,
+        "price": 139
+      },
+      {
+        "name": "Robot sprzątający Vacu S2",
+        "qty": 1,
+        "price": 1299
+      },
+      {
+        "name": "Kurtka przejściowa damska",
+        "qty": 2,
+        "price": 299
+      }
+    ],
+    "shipping": 0,
+    "total": 2175,
+    "status": "wyslane",
+    "carrier": "DPD",
+    "trackingNumber": "DPD646011098",
+    "shippedAt": "2026-11-04",
+    "deliveredAt": null,
+    "shippingAddress": "ul. Lipowa 61, Kraków"
+  },
+  {
+    "id": "LM-10023",
+    "createdAt": "2026-11-04",
+    "customer": {
+      "name": "Katarzyna Piotrowska",
+      "email": "katarzyna.piotrowska@example.com"
+    },
+    "items": [
+      {
+        "name": "Ekspres przelewowy Morning",
+        "qty": 1,
+        "price": 349
+      },
+      {
+        "name": "Komplet pościeli bawełnianej 160x200",
+        "qty": 1,
+        "price": 229
+      }
+    ],
+    "shipping": 0,
+    "total": 578,
+    "status": "dostarczone",
+    "carrier": "Poczta Polska",
+    "trackingNumber": "POC648162368",
+    "shippedAt": "2026-11-05",
+    "deliveredAt": "2026-11-07",
+    "shippingAddress": "ul. Leśna 41, Warszawa"
+  },
+  {
+    "id": "LM-10024",
+    "createdAt": "2026-11-05",
+    "customer": {
+      "name": "Tomasz Kowalski",
+      "email": "tomasz.kowalski@example.com"
+    },
+    "items": [
+      {
+        "name": "Kurtka przejściowa damska",
+        "qty": 1,
+        "price": 299
+      },
+      {
+        "name": "Sneakersy miejskie Flow",
+        "qty": 1,
+        "price": 259
+      }
+    ],
+    "shipping": 0,
+    "total": 558,
+    "status": "dostarczone",
+    "carrier": "InPost Paczkomat",
+    "trackingNumber": "INP645955483",
+    "shippedAt": "2026-11-06",
+    "deliveredAt": "2026-11-08",
+    "shippingAddress": "ul. Ogrodowa 78, Łódź"
+  },
+  {
+    "id": "LM-10025",
+    "createdAt": "2026-11-06",
+    "customer": {
+      "name": "Magdalena Woźniak",
+      "email": "magdalena.wozniak@example.com"
+    },
+    "items": [
+      {
+        "name": "Kurtka przejściowa damska",
+        "qty": 1,
+        "price": 299
+      }
+    ],
+    "shipping": 0,
+    "total": 299,
+    "status": "przyjete",
+    "carrier": "DPD",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Polna 31, Szczecin"
+  },
+  {
+    "id": "LM-10026",
+    "createdAt": "2026-11-07",
+    "customer": {
+      "name": "Michał Grabowski",
+      "email": "michal.grabowski@example.com"
+    },
+    "items": [
+      {
+        "name": "Szalik z wełny merino",
+        "qty": 1,
+        "price": 99
+      },
+      {
+        "name": "Powerbank 20 000 mAh",
+        "qty": 1,
+        "price": 129
+      },
+      {
+        "name": "Mysz bezprzewodowa Glide",
+        "qty": 1,
+        "price": 99
+      }
+    ],
+    "shipping": 0,
+    "total": 327,
+    "status": "wyslane",
+    "carrier": "InPost Paczkomat",
+    "trackingNumber": "INP646847362",
+    "shippedAt": "2026-11-08",
+    "deliveredAt": null,
+    "shippingAddress": "ul. Leśna 71, Poznań"
+  },
+  {
+    "id": "LM-10027",
+    "createdAt": "2026-11-08",
+    "customer": {
+      "name": "Agnieszka Wiśniewska",
+      "email": "agnieszka.wisniewska@example.com"
+    },
+    "items": [
+      {
+        "name": "Koszula lniana",
+        "qty": 1,
+        "price": 189
+      },
+      {
+        "name": "Patelnia granitowa 28 cm",
+        "qty": 2,
+        "price": 119
+      },
+      {
+        "name": "Słuchawki bezprzewodowe Aurio Pro",
+        "qty": 1,
+        "price": 349
+      }
+    ],
+    "shipping": 0,
+    "total": 776,
+    "status": "dostarczone",
+    "carrier": "DPD",
+    "trackingNumber": "DPD654806957",
+    "shippedAt": "2026-11-09",
+    "deliveredAt": "2026-11-11",
+    "shippingAddress": "ul. Polna 44, Lublin"
+  },
+  {
+    "id": "LM-10028",
+    "createdAt": "2026-11-10",
+    "customer": {
+      "name": "Paweł Dąbrowski",
+      "email": "pawel.dabrowski@example.com"
+    },
+    "items": [
+      {
+        "name": "Ekspres przelewowy Morning",
+        "qty": 1,
+        "price": 349
+      },
+      {
+        "name": "Sneakersy miejskie Flow",
+        "qty": 1,
+        "price": 259
+      }
+    ],
+    "shipping": 0,
+    "total": 608,
+    "status": "dostarczone",
+    "carrier": "Poczta Polska",
+    "trackingNumber": "POC643297959",
+    "shippedAt": "2026-11-11",
+    "deliveredAt": "2026-11-13",
+    "shippingAddress": "ul. Lipowa 36, Białystok"
+  },
+  {
+    "id": "LM-10029",
+    "createdAt": "2026-11-11",
+    "customer": {
+      "name": "Joanna Pawłowska",
+      "email": "joanna.pawlowska@example.com"
+    },
+    "items": [
+      {
+        "name": "Komplet pościeli bawełnianej 160x200",
+        "qty": 1,
+        "price": 229
+      },
+      {
+        "name": "Koszula lniana",
+        "qty": 1,
+        "price": 189
+      },
+      {
+        "name": "Ładowarka USB-C 65 W",
+        "qty": 1,
+        "price": 119
+      }
+    ],
+    "shipping": 0,
+    "total": 537,
+    "status": "przyjete",
+    "carrier": "Poczta Polska",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Leśna 74, Katowice"
+  },
+  {
+    "id": "LM-10030",
+    "createdAt": "2026-11-12",
+    "customer": {
+      "name": "Krzysztof Wójcik",
+      "email": "krzysztof.wojcik@example.com"
+    },
+    "items": [
+      {
+        "name": "Głośnik Bluetooth Tuba Mini",
+        "qty": 1,
+        "price": 189
+      },
+      {
+        "name": "Powerbank 20 000 mAh",
+        "qty": 1,
+        "price": 129
+      },
+      {
+        "name": "Mysz bezprzewodowa Glide",
+        "qty": 1,
+        "price": 99
+      }
+    ],
+    "shipping": 0,
+    "total": 417,
+    "status": "zwrocone",
+    "carrier": "DHL",
+    "trackingNumber": "DHL672203500",
+    "shippedAt": "2026-11-13",
+    "deliveredAt": "2026-11-15",
+    "shippingAddress": "ul. Słoneczna 35, Katowice"
+  },
+  {
+    "id": "LM-10031",
+    "createdAt": "2026-11-13",
+    "customer": {
+      "name": "Monika Kozłowska",
+      "email": "monika.kozlowska@example.com"
+    },
+    "items": [
+      {
+        "name": "Patelnia granitowa 28 cm",
+        "qty": 1,
+        "price": 119
+      },
+      {
+        "name": "Sneakersy miejskie Flow",
+        "qty": 1,
+        "price": 259
+      }
+    ],
+    "shipping": 0,
+    "total": 378,
+    "status": "dostarczone",
+    "carrier": "InPost Paczkomat",
+    "trackingNumber": "INP665813245",
+    "shippedAt": "2026-11-14",
+    "deliveredAt": "2026-11-16",
+    "shippingAddress": "ul. Słoneczna 31, Wrocław"
+  },
+  {
+    "id": "LM-10032",
+    "createdAt": "2026-11-14",
+    "customer": {
+      "name": "Marcin Michalski",
+      "email": "marcin.michalski@example.com"
+    },
+    "items": [
+      {
+        "name": "Smartwatch Fitly 3",
+        "qty": 1,
+        "price": 499
+      },
+      {
+        "name": "Komplet pościeli bawełnianej 160x200",
+        "qty": 1,
+        "price": 229
+      }
+    ],
+    "shipping": 0,
+    "total": 728,
+    "status": "dostarczone",
+    "carrier": "DHL",
+    "trackingNumber": "DHL638867096",
+    "shippedAt": "2026-11-15",
+    "deliveredAt": "2026-11-17",
+    "shippingAddress": "ul. Polna 75, Warszawa"
+  },
+  {
+    "id": "LM-10033",
+    "createdAt": "2026-11-15",
+    "customer": {
+      "name": "Ewa Kamińska",
+      "email": "ewa.kaminska@example.com"
+    },
+    "items": [
+      {
+        "name": "Mysz bezprzewodowa Glide",
+        "qty": 1,
+        "price": 99
+      }
+    ],
+    "shipping": 14.99,
+    "total": 113.99,
+    "status": "przyjete",
+    "carrier": "Poczta Polska",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Leśna 1, Katowice"
+  },
+  {
+    "id": "LM-10034",
+    "createdAt": "2026-11-16",
+    "customer": {
+      "name": "Jakub Jankowski",
+      "email": "jakub.jankowski@example.com"
+    },
+    "items": [
+      {
+        "name": "Smartwatch Fitly 3",
+        "qty": 1,
+        "price": 499
+      },
+      {
+        "name": "Komplet pościeli bawełnianej 160x200",
+        "qty": 1,
+        "price": 229
+      }
+    ],
+    "shipping": 0,
+    "total": 728,
+    "status": "wyslane",
+    "carrier": "DPD",
+    "trackingNumber": "DPD668395305",
+    "shippedAt": "2026-11-17",
+    "deliveredAt": null,
+    "shippingAddress": "ul. Słoneczna 5, Katowice"
+  },
+  {
+    "id": "LM-10035",
+    "createdAt": "2026-11-18",
+    "customer": {
+      "name": "Natalia Król",
+      "email": "natalia.krol@example.com"
+    },
+    "items": [
+      {
+        "name": "Smartwatch Fitly 3",
+        "qty": 2,
+        "price": 499
+      },
+      {
+        "name": "Robot sprzątający Vacu S2",
+        "qty": 1,
+        "price": 1299
+      },
+      {
+        "name": "Jeansy slim fit",
+        "qty": 2,
+        "price": 199
+      }
+    ],
+    "shipping": 0,
+    "total": 2695,
+    "status": "dostarczone",
+    "carrier": "DPD",
+    "trackingNumber": "DPD673030802",
+    "shippedAt": "2026-11-19",
+    "deliveredAt": "2026-11-21",
+    "shippingAddress": "ul. Słoneczna 43, Lublin"
+  },
+  {
+    "id": "LM-10036",
+    "createdAt": "2026-11-19",
+    "customer": {
+      "name": "Bartosz Lewandowski",
+      "email": "bartosz.lewandowski@example.com"
+    },
+    "items": [
+      {
+        "name": "Komplet pościeli bawełnianej 160x200",
+        "qty": 1,
+        "price": 229
+      }
+    ],
+    "shipping": 0,
+    "total": 229,
+    "status": "dostarczone",
+    "carrier": "DHL",
+    "trackingNumber": "DHL627224844",
+    "shippedAt": "2026-11-20",
+    "deliveredAt": "2026-11-22",
+    "shippingAddress": "ul. Ogrodowa 28, Gdańsk"
+  },
+  {
+    "id": "LM-10037",
+    "createdAt": "2026-11-20",
+    "customer": {
+      "name": "Aleksandra Mazur",
+      "email": "aleksandra.mazur@example.com"
+    },
+    "items": [
+      {
+        "name": "Czajnik elektryczny Stal 1,7 l",
+        "qty": 1,
+        "price": 159
+      },
+      {
+        "name": "Sneakersy miejskie Flow",
+        "qty": 2,
+        "price": 259
+      }
+    ],
+    "shipping": 0,
+    "total": 677,
+    "status": "przyjete",
+    "carrier": "DPD",
+    "trackingNumber": null,
+    "shippedAt": null,
+    "deliveredAt": null,
+    "shippingAddress": "ul. Polna 26, Kraków"
+  },
+  {
+    "id": "LM-10038",
+    "createdAt": "2026-11-21",
+    "customer": {
+      "name": "Łukasz Wieczorek",
+      "email": "lukasz.wieczorek@example.com"
+    },
+    "items": [
+      {
+        "name": "Jeansy slim fit",
+        "qty": 2,
+        "price": 199
+      },
+      {
+        "name": "Sweter wełniany oversize",
+        "qty": 1,
+        "price": 219
+      }
+    ],
+    "shipping": 0,
+    "total": 617,
+    "status": "wyslane",
+    "carrier": "DHL",
+    "trackingNumber": "DHL600511321",
+    "shippedAt": "2026-11-22",
+    "deliveredAt": null,
+    "shippingAddress": "ul. Kwiatowa 44, Kraków"
+  },
+  {
+    "id": "LM-10039",
+    "createdAt": "2026-11-22",
+    "customer": {
+      "name": "Zofia Zielińska",
+      "email": "zofia.zielinska@example.com"
+    },
+    "items": [
+      {
+        "name": "Czajnik elektryczny Stal 1,7 l",
+        "qty": 1,
+        "price": 159
+      },
+      {
+        "name": "Głośnik Bluetooth Tuba Mini",
+        "qty": 1,
+        "price": 189
+      },
+      {
+        "name": "Szalik z wełny merino",
+        "qty": 1,
+        "price": 99
+      }
+    ],
+    "shipping": 0,
+    "total": 447,
+    "status": "dostarczone",
+    "carrier": "DHL",
+    "trackingNumber": "DHL672870462",
+    "shippedAt": "2026-11-23",
+    "deliveredAt": "2026-11-25",
+    "shippingAddress": "ul. Polna 37, Łódź"
+  },
+  {
+    "id": "LM-10040",
+    "createdAt": "2026-11-23",
+    "customer": {
+      "name": "Grzegorz Krawczyk",
+      "email": "grzegorz.krawczyk@example.com"
+    },
+    "items": [
+      {
+        "name": "Klawiatura mechaniczna K87",
+        "qty": 1,
+        "price": 279
+      },
+      {
+        "name": "Kurtka przejściowa damska",
+        "qty": 1,
+        "price": 299
+      }
+    ],
+    "shipping": 0,
+    "total": 578,
+    "status": "zwrocone",
+    "carrier": "InPost Paczkomat",
+    "trackingNumber": "INP681902519",
+    "shippedAt": "2026-11-24",
+    "deliveredAt": "2026-11-26",
+    "shippingAddress": "ul. Polna 68, Białystok"
+  }
+]
