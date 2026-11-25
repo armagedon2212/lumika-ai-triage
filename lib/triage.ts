@@ -1,6 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk";
-import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { detectInjection } from "./injection";
+import { generateStructured, LlmOutputError, modelName } from "./llm";
 import { findOrderIdInText, getOrder, normalizeOrderId } from "./orders";
 import {
   analysisSystemPrompt,
@@ -12,30 +11,23 @@ import {
 import { computeCodeFlags, decideRoute, mergeFlags } from "./routing";
 import { AnalysisSchema, DraftSchema, type Analysis, type Flag, type TriageResult } from "./types";
 
-export const TRIAGE_MODEL = "claude-haiku-5-5";
 export const MAX_EMAIL_CHARS = 4000;
 
 export type EmailInput = { from?: string; subject?: string; body: string };
 
 export class TriageError extends Error {}
 
-let client: Anthropic | null = null;
-function getClient(): Anthropic {
-  client ??= new Anthropic();
-  return client;
-}
-
 /** Krok 1: analiza maila (klasyfikacja + sygnały). */
 async function analyze(email: EmailInput): Promise<{ analysis: Analysis; refused: boolean }> {
-  const response = await getClient().messages.parse({
-    model: TRIAGE_MODEL,
-    max_tokens: 4000,
-    system: analysisSystemPrompt(),
-    messages: [{ role: "user", content: `Przeanalizuj mail:\n\n${wrapEmail(email)}` }],
-    output_config: { effort: "low", format: zodOutputFormat(AnalysisSchema) },
-  });
-
-  if (response.stop_reason === "refusal") {
+  const res = await callModel(() =>
+    generateStructured({
+      system: analysisSystemPrompt(),
+      user: `Przeanalizuj mail:\n\n${wrapEmail(email)}`,
+      schema: AnalysisSchema,
+      maxTokens: 4000,
+    }),
+  );
+  if (!res.ok) {
     return {
       refused: true,
       analysis: {
@@ -50,27 +42,30 @@ async function analyze(email: EmailInput): Promise<{ analysis: Analysis; refused
       },
     };
   }
-  if (!response.parsed_output) {
-    throw new TriageError(`Nie udało się sparsować analizy (stop_reason: ${response.stop_reason})`);
-  }
-  const a = response.parsed_output;
-  return { refused: false, analysis: { ...a, confidence: clamp01(a.confidence) } };
+  return { refused: false, analysis: { ...res.data, confidence: clamp01(res.data.confidence) } };
 }
 
 /** Krok 3: szkic odpowiedzi z regulaminem i danymi zamówienia. */
 async function draft(args: Parameters<typeof draftUserPrompt>[0]): Promise<string | null> {
-  const response = await getClient().messages.parse({
-    model: TRIAGE_MODEL,
-    max_tokens: 6000,
-    system: draftSystemPrompt(),
-    messages: [{ role: "user", content: draftUserPrompt(args) }],
-    output_config: { effort: "low", format: zodOutputFormat(DraftSchema) },
-  });
-  if (response.stop_reason === "refusal") return null;
-  if (!response.parsed_output) {
-    throw new TriageError(`Nie udało się sparsować szkicu (stop_reason: ${response.stop_reason})`);
+  const res = await callModel(() =>
+    generateStructured({
+      system: draftSystemPrompt(),
+      user: draftUserPrompt(args),
+      schema: DraftSchema,
+      maxTokens: 6000,
+    }),
+  );
+  return res.ok ? res.data.draftReply.trim() : null;
+}
+
+/** Błędy formatu odpowiedzi modelu zamieniamy na TriageError (czytelny komunikat dla użytkownika). */
+async function callModel<T>(fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch (err) {
+    if (err instanceof LlmOutputError) throw new TriageError(err.message);
+    throw err;
   }
-  return response.parsed_output.draftReply.trim();
 }
 
 /** Krok 2: dane z „API sklepu” i flagi liczone przez kod (bez wywołań modelu). */
@@ -157,7 +152,7 @@ export async function triageEmail(email: EmailInput): Promise<TriageResult> {
         orderIdRequested: checks.orderId,
         ownerMismatch: checks.ownerMismatch,
       });
-  return finalizeResult({ analysis, checks, draftReply, model: TRIAGE_MODEL });
+  return finalizeResult({ analysis, checks, draftReply, model: modelName() });
 }
 
 function clamp01(x: number): number {

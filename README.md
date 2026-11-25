@@ -57,7 +57,7 @@ flowchart LR
   J --> UI[Skrzynka · Szczegóły · Dashboard]
 ```
 
-**Stos:** Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · `@anthropic-ai/sdk` (structured outputs + Zod) · Upstash Redis (`@upstash/ratelimit`) · Vitest · Vercel. Bez bazy danych: dane przykładowe to pliki JSON w repo.
+**Stos:** Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · `@anthropic-ai/sdk` (structured outputs + Zod) · `@google/genai` (opcjonalnie, darmowy tryb na żywo) · Upstash Redis (`@upstash/ratelimit`) · Vitest · Vercel. Bez bazy danych: dane przykładowe to pliki JSON w repo.
 
 ```
 app/            strony i route handlery (api/orders, api/triage, api/live-triage)
@@ -90,6 +90,7 @@ Trzy maile w danych przykładowych to próby manipulacji (`m046`–`m048`), np. 
 ## Ochrona przed kosztami
 
 - **Wyniki policzone wcześniej.** Wyniki dla 50 maili są zapisane w `data/results.json` w repo. Przeglądanie skrzynki, szczegółów i dashboardu **nie wywołuje API**. Skąd pochodzą wyniki, opisuje sekcja [Skąd są wyniki w skrzynce](#skąd-są-wyniki-w-skrzynce).
+- **Wybór dostawcy modelu** ([`lib/llm.ts`](lib/llm.ts)). Prompty, walidacja Zod i reguły są wspólne, zmienia się tylko dostawca. `LLM_PROVIDER=anthropic` to Claude Haiku 5.5 (płatne API). `LLM_PROVIDER=gemini` to Gemini Flash-Lite na **darmowym planie** Gemini API, z niskimi limitami (rzędu kilkuset zapytań dziennie, ustalanych przez Google per projekt). Na darmowym planie Google może wykorzystywać przesyłane treści do ulepszania usług, o czym formularz uprzedza.
 - **Na żywo tylko „Wklej własnego maila”.** Rate limit w Upstash Redis: **10 prób na IP dziennie** i **globalny limit dzienny** (domyślnie 200), oba konfigurowalne. Bez zmiennych Upstash endpoint jest wyłączony z czytelnym komunikatem, a reszta demo działa.
 - **Limity wejścia.** Maks. 3000 znaków maila, walidacja Zod, ograniczone `max_tokens`.
 - **Tani model.** Claude Haiku 5.5 z `effort: "low"`, czyli ułamek grosza za mail (2 wywołania).
@@ -147,14 +148,16 @@ npm run lint
 npm run precompute -- --only=m001,m046   # przelicz tylko wybrane maile
 ```
 
-Triage na żywo lokalnie wymaga też `UPSTASH_REDIS_REST_URL` i `UPSTASH_REDIS_REST_TOKEN` (darmowa baza Redis w [Upstash](https://upstash.com/)).
+Triage na żywo lokalnie: ustaw `LLM_PROVIDER=gemini` i `GEMINI_API_KEY` (darmowy klucz z [Google AI Studio](https://aistudio.google.com/apikey)). Albo ustaw `LLM_PROVIDER=anthropic` i `ANTHROPIC_API_KEY`. W `npm run dev` bez Upstash działa limiter w pamięci. Na produkcji wymagane są `UPSTASH_REDIS_REST_URL` i `UPSTASH_REDIS_REST_TOKEN` (darmowa baza Redis w [Upstash](https://upstash.com/)).
 
 ## Wdrożenie na Vercelu
 
 1. Wypchnij repozytorium na GitHub (`data/results.json` jest już w repo).
 2. W Vercelu: **Add New → Project → Import** z GitHuba. Framework wykryje się sam (Next.js).
 3. **Settings → Environment Variables** (Production):
-   - `ANTHROPIC_API_KEY`: klucz Claude API (najlepiej osobny, z limitem wydatków w konsoli Anthropic). Bez niego „Wklej własnego maila” jest wyłączone, a reszta demo działa;
+   - darmowo: `LLM_PROVIDER=gemini` + `GEMINI_API_KEY` (klucz z Google AI Studio);
+   - albo płatnie: `LLM_PROVIDER=anthropic` + `ANTHROPIC_API_KEY` (najlepiej osobny klucz z limitem wydatków);
+   - bez klucza modelu „Wklej własnego maila” jest wyłączone, a reszta demo działa;
    - `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`: najprościej przez **Vercel Marketplace → Upstash Redis**, który ustawi je automatycznie;
    - opcjonalnie `LIVE_LIMIT_PER_IP_PER_DAY`, `LIVE_LIMIT_GLOBAL_PER_DAY`;
    - opcjonalnie `TRIAGE_API_SECRET`, tylko jeśli chcesz podłączyć n8n.
@@ -204,6 +207,6 @@ Odpowiedź: `{ route, reasons, triage: { category, priority, sentiment, language
 
 ## English summary
 
-**Lumika AI-triage** is a portfolio demo for a fictional online store (sample data only). Incoming customer emails are analysed by **Claude** (Haiku 5.5 via the API): category, priority, sentiment, language, order ID, summary, confidence and flags, returned as structured JSON validated with Zod. The app looks up the order in a mock store API and drafts a reply grounded only in the store policy. **The routing decision is made by tested code, not by the model:** `auto` (safe categories, high confidence, no flags), `review` (an agent approves the draft) or `escalate` (negative complaints, legal threats, suspicious content). Prompt-injection attempts are handled in layers: the email is treated as data, the model flags it, a code-side heuristic flags it independently, and no draft is generated. Results for the 50 sample emails are precomputed, so browsing costs nothing. The committed results were produced by Claude inside a Claude Code session, using the same prompts, instead of a paid API run. They then pass through the same code path: Zod validation, order lookup, code-side flags and routing. `npm run precompute` regenerates them via the API. Only the "paste your own email" page calls the API live, behind an Upstash rate limit. Includes a dashboard with editable time-saving assumptions and an importable **n8n** workflow (Gmail → `/api/triage` → Gmail reply / Gmail draft / Slack).
+**Lumika AI-triage** is a portfolio demo for a fictional online store (sample data only). Incoming customer emails are analysed by **Claude** (Haiku 5.5 via the API): category, priority, sentiment, language, order ID, summary, confidence and flags, returned as structured JSON validated with Zod. The app looks up the order in a mock store API and drafts a reply grounded only in the store policy. **The routing decision is made by tested code, not by the model:** `auto` (safe categories, high confidence, no flags), `review` (an agent approves the draft) or `escalate` (negative complaints, legal threats, suspicious content). Prompt-injection attempts are handled in layers: the email is treated as data, the model flags it, a code-side heuristic flags it independently, and no draft is generated. Results for the 50 sample emails are precomputed, so browsing costs nothing. The committed results were produced by Claude inside a Claude Code session, using the same prompts, instead of a paid API run. They then pass through the same code path: Zod validation, order lookup, code-side flags and routing. `npm run precompute` regenerates them via the API. Only the "paste your own email" page calls a model live, behind an Upstash rate limit. The live provider is configurable: Claude Haiku 5.5 (paid) or Gemini Flash-Lite on Google's free tier. Includes a dashboard with editable time-saving assumptions and an importable **n8n** workflow (Gmail → `/api/triage` → Gmail reply / Gmail draft / Slack).
 
 Built with Claude Code.

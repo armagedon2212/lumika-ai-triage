@@ -5,7 +5,9 @@ import { LIVE_MAX_CHARS } from "@/lib/api-input";
 import type { TriageResult } from "@/lib/types";
 import { ResultPanel } from "./ResultPanel";
 
-type Status = { enabled: true; remaining: number; limit: number } | { enabled: false; reason: string | null };
+type Status =
+  | { enabled: true; remaining: number; limit: number; provider: "anthropic" | "gemini"; model: string }
+  | { enabled: false; reason: string | null };
 
 const EXAMPLES = [
   {
@@ -84,6 +86,14 @@ export function LiveTriage() {
             </span>
           )}
         </div>
+
+        {status?.enabled && (
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            Model: <span className="font-medium text-slate-700 dark:text-slate-200">{status.model}</span>
+            {status.provider === "gemini" &&
+              " — darmowy plan Google może wykorzystywać przesłane treści do ulepszania swoich usług. Nie wpisuj prawdziwych danych osobowych."}
+          </p>
+        )}
 
         {disabled && (
           <div className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-200">

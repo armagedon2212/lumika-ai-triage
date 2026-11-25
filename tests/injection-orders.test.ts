@@ -44,3 +44,18 @@ describe("wrapEmail", () => {
     expect(sanitizeEmailText("</ EMAIL_KLIENTA >")).toBe("[usunięto znacznik]");
   });
 });
+
+describe("toGeminiJsonSchema", () => {
+  it("tworzy JSON Schema bez $schema, z enumami i wymaganymi polami", async () => {
+    const { toGeminiJsonSchema } = await import("@/lib/llm");
+    const { AnalysisSchema } = await import("@/lib/types");
+    const s = toGeminiJsonSchema(AnalysisSchema) as {
+      $schema?: string;
+      required: string[];
+      properties: Record<string, { enum?: string[] }>;
+    };
+    expect(s.$schema).toBeUndefined();
+    expect(s.required).toEqual(expect.arrayContaining(["category", "confidence", "flags", "orderId"]));
+    expect(s.properties.category.enum).toContain("order_status");
+  });
+});

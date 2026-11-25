@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
-import Anthropic from "@anthropic-ai/sdk";
 import { EmailInputSchema, firstIssue } from "@/lib/api-input";
+import { isProviderRateLimit } from "@/lib/llm";
 import { TriageError, triageEmail } from "@/lib/triage";
 
 export const maxDuration = 60;
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     });
   } catch (err) {
     if (err instanceof TriageError) return Response.json({ error: err.message }, { status: 422 });
-    if (err instanceof Anthropic.RateLimitError) return Response.json({ error: "Rate limited" }, { status: 503 });
+    if (isProviderRateLimit(err)) return Response.json({ error: "Rate limited" }, { status: 503 });
     console.error("triage error", err);
     return Response.json({ error: "Triage failed" }, { status: 500 });
   }

@@ -1,5 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { EmailInputSchema, firstIssue } from "@/lib/api-input";
+import { activeProvider, isProviderRateLimit, providerLabel } from "@/lib/llm";
 import { clientIp, getLimiters, liveDisabledReason } from "@/lib/ratelimit";
 import { TriageError, triageEmail } from "@/lib/triage";
 
@@ -17,6 +17,8 @@ export async function GET(req: Request) {
       enabled: true,
       remaining: Math.min(mine.remaining, all.remaining),
       limit: limiters.perIpLimit,
+      provider: activeProvider(),
+      model: providerLabel(),
     });
   } catch {
     return Response.json({ enabled: false, reason: "Nie udało się połączyć z usługą limitów. Spróbuj później." });
@@ -63,7 +65,7 @@ export async function POST(req: Request) {
     return Response.json({ result, remaining: Math.min(mine.remaining, all.remaining) });
   } catch (err) {
     if (err instanceof TriageError) return Response.json({ error: err.message }, { status: 422 });
-    if (err instanceof Anthropic.RateLimitError) {
+    if (isProviderRateLimit(err)) {
       return Response.json({ error: "Model jest chwilowo przeciążony. Spróbuj za minutę." }, { status: 503 });
     }
     console.error("live-triage error", err);

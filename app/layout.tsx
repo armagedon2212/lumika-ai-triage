@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <strong className="font-semibold">Fikcyjny sklep, dane przykładowe.</strong> Lumika nie istnieje — to projekt
             demonstracyjny do portfolio. Wysyłka maili jest symulowana.
           </p>
-          <p className="mt-1">Zbudowane z Claude Code · wyniki skrzynki: Claude (w Claude Code) · triage na żywo: Claude Haiku 5.5 API</p>
+          <p className="mt-1">Zbudowane z Claude Code · wyniki skrzynki: Claude (w Claude Code) · triage na żywo: Gemini (darmowy plan) lub Claude API</p>
         </footer>
       </body>
     </html>
