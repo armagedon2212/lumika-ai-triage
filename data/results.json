@@ -1,5 +1,2174 @@
 {
-  "generatedAt": null,
-  "model": "claude-haiku-5-5",
-  "results": []
+  "generatedAt": "2026-11-25T23:49:15.635Z",
+  "model": "claude-opus-5-5 (Claude Code)",
+  "results": [
+    {
+      "emailId": "m001",
+      "triage": {
+        "category": "order_status",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10022",
+        "summary": "Klient pyta, kiedy dotrze wysłane zamówienie LM-10022, bo nie dostał powiadomienia od kuriera.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Piotrze,\n\ndziękujemy za wiadomość. Zamówienie LM-10022 zostało wysłane 4 listopada przez DPD, numer przesyłki: DPD646011098 — można go śledzić na stronie przewoźnika.\n\nOd wysyłki minęło już ponad 5 dni roboczych, dlatego zgodnie z naszymi zasadami zgłaszamy reklamację przesyłki u przewoźnika. Gdy tylko otrzymamy odpowiedź DPD, wrócimy do Pana z informacją o dalszych krokach.\n\nPrzepraszamy za niedogodności.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10022",
+        "createdAt": "2026-11-03",
+        "customer": {
+          "name": "Piotr Szymański",
+          "email": "piotr.szymanski@example.com"
+        },
+        "items": [
+          {
+            "name": "Lampka biurkowa LED Arc",
+            "qty": 2,
+            "price": 139
+          },
+          {
+            "name": "Robot sprzątający Vacu S2",
+            "qty": 1,
+            "price": 1299
+          },
+          {
+            "name": "Kurtka przejściowa damska",
+            "qty": 2,
+            "price": 299
+          }
+        ],
+        "shipping": 0,
+        "total": 2175,
+        "status": "wyslane",
+        "carrier": "DPD",
+        "trackingNumber": "DPD646011098",
+        "shippedAt": "2026-11-04",
+        "deliveredAt": null,
+        "shippingAddress": "ul. Lipowa 61, Kraków"
+      },
+      "decision": {
+        "route": "auto",
+        "reasons": [
+          "Bezpieczna kategoria",
+          "Pewność 95% ≥ 85%",
+          "Nastrój nie jest negatywny",
+          "Brak flag",
+          "Zamówienie znalezione w systemie"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.631Z"
+    },
+    {
+      "emailId": "m002",
+      "triage": {
+        "category": "order_status",
+        "priority": "normal",
+        "sentiment": "negative",
+        "language": "pl",
+        "orderId": "LM-10026",
+        "summary": "Klient niecierpliwie pyta, gdzie jest paczka z zamówienia LM-10026.",
+        "confidence": 0.93,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Michale,\n\nzamówienie LM-10026 zostało wysłane 8 listopada do Paczkomatu InPost, numer przesyłki: INP646847362.\n\nPrzesyłka jest w drodze dłużej, niż przewiduje przewoźnik (1–2 dni robocze), dlatego zgłaszamy reklamację u InPost. Prosimy też sprawdzić aplikację InPost — czasem powiadomienie o odbiorze nie dociera SMS-em. Wrócimy z informacją, gdy tylko przewoźnik odpowie.\n\nPrzepraszamy za kłopot.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10026",
+        "createdAt": "2026-11-07",
+        "customer": {
+          "name": "Michał Grabowski",
+          "email": "michal.grabowski@example.com"
+        },
+        "items": [
+          {
+            "name": "Szalik z wełny merino",
+            "qty": 1,
+            "price": 99
+          },
+          {
+            "name": "Powerbank 20 000 mAh",
+            "qty": 1,
+            "price": 129
+          },
+          {
+            "name": "Mysz bezprzewodowa Glide",
+            "qty": 1,
+            "price": 99
+          }
+        ],
+        "shipping": 0,
+        "total": 327,
+        "status": "wyslane",
+        "carrier": "InPost Paczkomat",
+        "trackingNumber": "INP646847362",
+        "shippedAt": "2026-11-08",
+        "deliveredAt": null,
+        "shippingAddress": "ul. Leśna 71, Poznań"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Negatywny nastrój klienta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.633Z"
+    },
+    {
+      "emailId": "m003",
+      "triage": {
+        "category": "order_status",
+        "priority": "low",
+        "sentiment": "positive",
+        "language": "pl",
+        "orderId": "LM-10038",
+        "summary": "Klient prosi o numer przesyłki do zamówienia LM-10038, żeby śledzić paczkę DHL.",
+        "confidence": 0.97,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Łukaszu,\n\nnumer przesyłki do zamówienia LM-10038 to: DHL600511321. Paczka została wysłana 22 listopada przez DHL, a orientacyjny czas dostawy to 1–3 dni robocze od wysyłki.\n\nPozdrawiamy serdecznie,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10038",
+        "createdAt": "2026-11-21",
+        "customer": {
+          "name": "Łukasz Wieczorek",
+          "email": "lukasz.wieczorek@example.com"
+        },
+        "items": [
+          {
+            "name": "Jeansy slim fit",
+            "qty": 2,
+            "price": 199
+          },
+          {
+            "name": "Sweter wełniany oversize",
+            "qty": 1,
+            "price": 219
+          }
+        ],
+        "shipping": 0,
+        "total": 617,
+        "status": "wyslane",
+        "carrier": "DHL",
+        "trackingNumber": "DHL600511321",
+        "shippedAt": "2026-11-22",
+        "deliveredAt": null,
+        "shippingAddress": "ul. Kwiatowa 44, Kraków"
+      },
+      "decision": {
+        "route": "auto",
+        "reasons": [
+          "Bezpieczna kategoria",
+          "Pewność 97% ≥ 85%",
+          "Nastrój nie jest negatywny",
+          "Brak flag",
+          "Zamówienie znalezione w systemie"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.634Z"
+    },
+    {
+      "emailId": "m004",
+      "triage": {
+        "category": "order_status",
+        "priority": "normal",
+        "sentiment": "positive",
+        "language": "pl",
+        "orderId": "LM-10034",
+        "summary": "Klient pyta, czy zamówienie LM-10034 zostało wysłane, bo potrzebuje go na prezent w przyszły weekend.",
+        "confidence": 0.94,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Jakubie,\n\ntak — zamówienie LM-10034 (smartwatch i pościel) zostało wysłane 17 listopada przez DPD, numer przesyłki: DPD668395305.\n\nPonieważ od wysyłki minęło więcej niż 5 dni roboczych, zgłaszamy reklamację przesyłki u przewoźnika i będziemy na bieżąco informować o jej statusie. Nie możemy zagwarantować daty doręczenia, ale zrobimy wszystko, by sprawę wyjaśnić jak najszybciej.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10034",
+        "createdAt": "2026-11-16",
+        "customer": {
+          "name": "Jakub Jankowski",
+          "email": "jakub.jankowski@example.com"
+        },
+        "items": [
+          {
+            "name": "Smartwatch Fitly 3",
+            "qty": 1,
+            "price": 499
+          },
+          {
+            "name": "Komplet pościeli bawełnianej 160x200",
+            "qty": 1,
+            "price": 229
+          }
+        ],
+        "shipping": 0,
+        "total": 728,
+        "status": "wyslane",
+        "carrier": "DPD",
+        "trackingNumber": "DPD668395305",
+        "shippedAt": "2026-11-17",
+        "deliveredAt": null,
+        "shippingAddress": "ul. Słoneczna 5, Katowice"
+      },
+      "decision": {
+        "route": "auto",
+        "reasons": [
+          "Bezpieczna kategoria",
+          "Pewność 94% ≥ 85%",
+          "Nastrój nie jest negatywny",
+          "Brak flag",
+          "Zamówienie znalezione w systemie"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.634Z"
+    },
+    {
+      "emailId": "m005",
+      "triage": {
+        "category": "order_status",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10037",
+        "summary": "Klientka pyta, kiedy zostanie wysłane zamówienie LM-10037, które od kilku dni ma status „przyjęte”.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Aleksandro,\n\nzamówienie LM-10037 (czajnik i sneakersy) ma obecnie status „przyjęte” i nie zostało jeszcze wysłane. Wysyłamy zamówienia w ciągu 1 dnia roboczego od zaksięgowania płatności — sprawdzamy, dlaczego to zamówienie czeka dłużej, i wrócimy z informacją najpóźniej w ciągu 24 godzin.\n\nPrzepraszamy za opóźnienie.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10037",
+        "createdAt": "2026-11-20",
+        "customer": {
+          "name": "Aleksandra Mazur",
+          "email": "aleksandra.mazur@example.com"
+        },
+        "items": [
+          {
+            "name": "Czajnik elektryczny Stal 1,7 l",
+            "qty": 1,
+            "price": 159
+          },
+          {
+            "name": "Sneakersy miejskie Flow",
+            "qty": 2,
+            "price": 259
+          }
+        ],
+        "shipping": 0,
+        "total": 677,
+        "status": "przyjete",
+        "carrier": "DPD",
+        "trackingNumber": null,
+        "shippedAt": null,
+        "deliveredAt": null,
+        "shippingAddress": "ul. Polna 26, Kraków"
+      },
+      "decision": {
+        "route": "auto",
+        "reasons": [
+          "Bezpieczna kategoria",
+          "Pewność 95% ≥ 85%",
+          "Nastrój nie jest negatywny",
+          "Brak flag",
+          "Zamówienie znalezione w systemie"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.634Z"
+    },
+    {
+      "emailId": "m006",
+      "triage": {
+        "category": "order_status",
+        "priority": "high",
+        "sentiment": "negative",
+        "language": "pl",
+        "orderId": "LM-10033",
+        "summary": "Zdenerwowana klientka skarży się, że opłacone 15 listopada zamówienie LM-10033 nadal nie zostało wysłane, i grozi rezygnacją.",
+        "confidence": 0.94,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Ewo,\n\nbardzo przepraszamy — rozumiemy Pani frustrację. Zamówienie LM-10033 (mysz bezprzewodowa Glide) rzeczywiście ma status „przyjęte” i nie zostało wysłane, choć powinno wyjść w ciągu 1 dnia roboczego od zaksięgowania płatności.\n\nPrzekazaliśmy sprawę do pilnego wyjaśnienia w magazynie. Jeśli woli Pani zrezygnować, zamówienie można anulować, dopóki nie zostanie wysłane — wystarczy odpowiedzieć na tę wiadomość.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10033",
+        "createdAt": "2026-11-15",
+        "customer": {
+          "name": "Ewa Kamińska",
+          "email": "ewa.kaminska@example.com"
+        },
+        "items": [
+          {
+            "name": "Mysz bezprzewodowa Glide",
+            "qty": 1,
+            "price": 99
+          }
+        ],
+        "shipping": 14.99,
+        "total": 113.99,
+        "status": "przyjete",
+        "carrier": "Poczta Polska",
+        "trackingNumber": null,
+        "shippedAt": null,
+        "deliveredAt": null,
+        "shippingAddress": "ul. Leśna 1, Katowice"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Negatywny nastrój klienta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.634Z"
+    },
+    {
+      "emailId": "m007",
+      "triage": {
+        "category": "order_status",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-19999",
+        "summary": "Klient pyta o status zamówienia LM-19999 ze słuchawkami.",
+        "confidence": 0.92,
+        "flags": [
+          "order_not_found"
+        ],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za wiadomość. Niestety nie znajdujemy w systemie zamówienia o numerze LM-19999. Prosimy o sprawdzenie numeru w mailu potwierdzającym zamówienie (ma postać LM-xxxxx) i przesłanie go w odpowiedzi — wtedy od razu sprawdzimy status przesyłki.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Flaga: zamówienie nie istnieje"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.634Z"
+    },
+    {
+      "emailId": "m008",
+      "triage": {
+        "category": "order_status",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Klientka pyta, kiedy dotrze zamówienie z kurtką i swetrem, nie podając numeru zamówienia.",
+        "confidence": 0.9,
+        "flags": [
+          "missing_order_id"
+        ],
+        "draftReply": "Dzień dobry Pani Marto,\n\ndziękujemy za wiadomość. Aby sprawdzić status przesyłki, potrzebujemy numeru zamówienia — znajdzie go Pani w mailu potwierdzającym zakup (ma postać LM-xxxxx). Prosimy o przesłanie go w odpowiedzi, a od razu sprawdzimy, gdzie jest paczka.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Flaga: brak numeru zamówienia"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.634Z"
+    },
+    {
+      "emailId": "m009",
+      "triage": {
+        "category": "order_status",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10021",
+        "summary": "Klientka pyta, czy zamówienie LM-10021 z ręcznikami zostanie wysłane w tym tygodniu.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Anno,\n\nzamówienie LM-10021 (zestaw ręczników) ma obecnie status „przyjęte” i nie zostało jeszcze wysłane. Standardowo wysyłamy w ciągu 1 dnia roboczego od zaksięgowania płatności, więc sprawdzamy, co opóźnia to zamówienie, i wrócimy z informacją w ciągu 24 godzin.\n\nPrzepraszamy za zwłokę.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10021",
+        "createdAt": "2026-11-02",
+        "customer": {
+          "name": "Anna Nowak",
+          "email": "anna.nowak@example.com"
+        },
+        "items": [
+          {
+            "name": "Zestaw ręczników (4 szt.)",
+            "qty": 1,
+            "price": 89
+          }
+        ],
+        "shipping": 14.99,
+        "total": 103.99,
+        "status": "przyjete",
+        "carrier": "Poczta Polska",
+        "trackingNumber": null,
+        "shippedAt": null,
+        "deliveredAt": null,
+        "shippingAddress": "ul. Słoneczna 18, Poznań"
+      },
+      "decision": {
+        "route": "auto",
+        "reasons": [
+          "Bezpieczna kategoria",
+          "Pewność 95% ≥ 85%",
+          "Nastrój nie jest negatywny",
+          "Brak flag",
+          "Zamówienie znalezione w systemie"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.634Z"
+    },
+    {
+      "emailId": "m010",
+      "triage": {
+        "category": "complaint",
+        "priority": "high",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10039",
+        "summary": "Klientka zgłasza, że paczka LM-10039 ma status doręczonej, ale jej nie otrzymała.",
+        "confidence": 0.88,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Zofio,\n\ndziękujemy za zgłoszenie. Według DHL przesyłka DHL672870462 z zamówienia LM-10039 została doręczona 25 listopada. Prosimy sprawdzić, czy paczki nie odebrał sąsiad lub nie została zostawiona w punkcie DHL — informacja powinna być w powiadomieniu od przewoźnika.\n\nJeśli paczki nie ma, zgłosimy reklamację u przewoźnika. Odpowiemy na reklamację w ciągu 14 dni, a o każdym kroku będziemy Panią informować.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10039",
+        "createdAt": "2026-11-22",
+        "customer": {
+          "name": "Zofia Zielińska",
+          "email": "zofia.zielinska@example.com"
+        },
+        "items": [
+          {
+            "name": "Czajnik elektryczny Stal 1,7 l",
+            "qty": 1,
+            "price": 159
+          },
+          {
+            "name": "Głośnik Bluetooth Tuba Mini",
+            "qty": 1,
+            "price": 189
+          },
+          {
+            "name": "Szalik z wełny merino",
+            "qty": 1,
+            "price": 99
+          }
+        ],
+        "shipping": 0,
+        "total": 447,
+        "status": "dostarczone",
+        "carrier": "DHL",
+        "trackingNumber": "DHL672870462",
+        "shippedAt": "2026-11-23",
+        "deliveredAt": "2026-11-25",
+        "shippingAddress": "ul. Polna 37, Łódź"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m011",
+      "triage": {
+        "category": "order_status",
+        "priority": "normal",
+        "sentiment": "positive",
+        "language": "en",
+        "orderId": "LM-10018",
+        "summary": "James pyta o termin dostawy zamówienia LM-10018 złożonego w imieniu kolegi.",
+        "confidence": 0.93,
+        "flags": [
+          "order_owner_mismatch"
+        ],
+        "draftReply": "Hello James,\n\nThank you for your message. For privacy reasons we can only share order details with the person who placed the order. Could you please ask your colleague to contact us from the email address used for the purchase? We will be happy to provide the delivery status right away.\n\nBest regards,\nLumika Customer Care Team"
+      },
+      "order": {
+        "id": "LM-10018",
+        "createdAt": "2026-10-29",
+        "customer": {
+          "name": "Łukasz Wieczorek",
+          "email": "lukasz.wieczorek@example.com"
+        },
+        "items": [
+          {
+            "name": "Smartwatch Fitly 3",
+            "qty": 1,
+            "price": 499
+          },
+          {
+            "name": "Lampka biurkowa LED Arc",
+            "qty": 1,
+            "price": 139
+          }
+        ],
+        "shipping": 0,
+        "total": 638,
+        "status": "wyslane",
+        "carrier": "DPD",
+        "trackingNumber": "DPD653651405",
+        "shippedAt": "2026-10-30",
+        "deliveredAt": null,
+        "shippingAddress": "ul. Słoneczna 70, Białystok"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Flaga: nadawca ≠ właściciel zamówienia"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m012",
+      "triage": {
+        "category": "complaint",
+        "priority": "high",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10002",
+        "summary": "Klient zgłasza, że zamówienie LM-10002 wysłane Pocztą Polską ponad miesiąc temu nie dotarło.",
+        "confidence": 0.9,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Piotrze,\n\nbardzo przepraszamy. Zamówienie LM-10002 zostało wysłane 12 października Pocztą Polską (numer przesyłki POC645202863) i rzeczywiście nie zostało doręczone.\n\nZgłaszamy reklamację przesyłki u przewoźnika. Odpowiemy na reklamację w ciągu 14 dni i poinformujemy Pana o jej rozstrzygnięciu.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10002",
+        "createdAt": "2026-10-11",
+        "customer": {
+          "name": "Piotr Szymański",
+          "email": "piotr.szymanski@example.com"
+        },
+        "items": [
+          {
+            "name": "Zestaw ręczników (4 szt.)",
+            "qty": 1,
+            "price": 89
+          },
+          {
+            "name": "Smartwatch Fitly 3",
+            "qty": 1,
+            "price": 499
+          }
+        ],
+        "shipping": 0,
+        "total": 588,
+        "status": "wyslane",
+        "carrier": "Poczta Polska",
+        "trackingNumber": "POC645202863",
+        "shippedAt": "2026-10-12",
+        "deliveredAt": null,
+        "shippingAddress": "ul. Słoneczna 20, Kraków"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m013",
+      "triage": {
+        "category": "return",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10023",
+        "summary": "Klientka chce zwrócić nieużywany ekspres z zamówienia LM-10023 i pyta o procedurę.",
+        "confidence": 0.96,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Katarzyno,\n\noczywiście, ekspres można zwrócić. Zamówienie LM-10023 zostało doręczone 7 listopada, więc ma Pani czas na zwrot do 7 grudnia (30 dni od doręczenia).\n\nWystarczy wypełnić formularz zwrotu w sklepie — otrzyma Pani etykietę zwrotną. Koszt odesłania pokrywa kupujący. Zwrot pieniędzy nastąpi w ciągu 14 dni od otrzymania przez nas paczki, na tę samą metodę płatności.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10023",
+        "createdAt": "2026-11-04",
+        "customer": {
+          "name": "Katarzyna Piotrowska",
+          "email": "katarzyna.piotrowska@example.com"
+        },
+        "items": [
+          {
+            "name": "Ekspres przelewowy Morning",
+            "qty": 1,
+            "price": 349
+          },
+          {
+            "name": "Komplet pościeli bawełnianej 160x200",
+            "qty": 1,
+            "price": 229
+          }
+        ],
+        "shipping": 0,
+        "total": 578,
+        "status": "dostarczone",
+        "carrier": "Poczta Polska",
+        "trackingNumber": "POC648162368",
+        "shippedAt": "2026-11-05",
+        "deliveredAt": "2026-11-07",
+        "shippingAddress": "ul. Leśna 41, Warszawa"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m014",
+      "triage": {
+        "category": "return",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10024",
+        "summary": "Klient chce zwrócić za małe buty z zamówienia LM-10024 lub wymienić je na rozmiar 44.",
+        "confidence": 0.94,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Tomaszu,\n\nprzykro nam, że rozmiar nie pasuje. Wymiana rozmiaru odbywa się u nas jako zwrot i nowe zamówienie: proszę zgłosić zwrot butów przez formularz w sklepie (otrzyma Pan etykietę zwrotną) i złożyć nowe zamówienie na rozmiar 44.\n\nZamówienie LM-10024 zostało doręczone 8 listopada, więc zwrot jest możliwy do 8 grudnia. Koszt odesłania pokrywa kupujący, a pieniądze zwrócimy w ciągu 14 dni od otrzymania paczki.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10024",
+        "createdAt": "2026-11-05",
+        "customer": {
+          "name": "Tomasz Kowalski",
+          "email": "tomasz.kowalski@example.com"
+        },
+        "items": [
+          {
+            "name": "Kurtka przejściowa damska",
+            "qty": 1,
+            "price": 299
+          },
+          {
+            "name": "Sneakersy miejskie Flow",
+            "qty": 1,
+            "price": 259
+          }
+        ],
+        "shipping": 0,
+        "total": 558,
+        "status": "dostarczone",
+        "carrier": "InPost Paczkomat",
+        "trackingNumber": "INP645955483",
+        "shippedAt": "2026-11-06",
+        "deliveredAt": "2026-11-08",
+        "shippingAddress": "ul. Ogrodowa 78, Łódź"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m015",
+      "triage": {
+        "category": "return",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10007",
+        "summary": "Klientka chce zwrócić koszulę lnianą z LM-10007, bo kolor różni się od zdjęć.",
+        "confidence": 0.9,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Agnieszko,\n\ndziękujemy za wiadomość. Zamówienie LM-10007 zostało doręczone 19 października, a 30-dniowy termin na zwrot bez podania przyczyny minął 18 listopada — dlatego nie możemy przyjąć zwrotu w tym trybie.\n\nJeśli uważa Pani, że koszula jest niezgodna z opisem w sklepie (np. kolor wyraźnie różni się od przedstawionego), może Pani złożyć reklamację: prosimy o numer zamówienia, opis i zdjęcia. Odpowiemy na reklamację w ciągu 14 dni.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10007",
+        "createdAt": "2026-10-16",
+        "customer": {
+          "name": "Agnieszka Wiśniewska",
+          "email": "agnieszka.wisniewska@example.com"
+        },
+        "items": [
+          {
+            "name": "Koszula lniana",
+            "qty": 1,
+            "price": 189
+          }
+        ],
+        "shipping": 14.99,
+        "total": 203.99,
+        "status": "dostarczone",
+        "carrier": "DHL",
+        "trackingNumber": "DHL618674026",
+        "shippedAt": "2026-10-17",
+        "deliveredAt": "2026-10-19",
+        "shippingAddress": "ul. Leśna 80, Kraków"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m016",
+      "triage": {
+        "category": "return",
+        "priority": "high",
+        "sentiment": "negative",
+        "language": "pl",
+        "orderId": "LM-10010",
+        "summary": "Klient skarży się, że mimo statusu „zwrócone” nie otrzymał pieniędzy za kurtkę z LM-10010 po ponad trzech tygodniach.",
+        "confidence": 0.93,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Krzysztofie,\n\nprzepraszamy za kłopot. Zamówienie LM-10010 ma w naszym systemie status „zwrócone”. Zgodnie z regulaminem zwrot pieniędzy następuje w ciągu 14 dni od otrzymania przesyłki zwrotnej, na tę samą metodę płatności, z której Pan korzystał.\n\nPrzekazaliśmy sprawę do działu finansów, aby sprawdzić datę przyjęcia zwrotu i status przelewu. Wrócimy z konkretną informacją najpóźniej w ciągu 24 godzin.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10010",
+        "createdAt": "2026-10-20",
+        "customer": {
+          "name": "Krzysztof Wójcik",
+          "email": "krzysztof.wojcik@example.com"
+        },
+        "items": [
+          {
+            "name": "Kurtka przejściowa damska",
+            "qty": 2,
+            "price": 299
+          }
+        ],
+        "shipping": 0,
+        "total": 598,
+        "status": "zwrocone",
+        "carrier": "DPD",
+        "trackingNumber": "DPD644082354",
+        "shippedAt": "2026-10-21",
+        "deliveredAt": "2026-10-23",
+        "shippingAddress": "ul. Kwiatowa 38, Białystok"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta",
+          "Negatywny nastrój klienta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m017",
+      "triage": {
+        "category": "return",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "en",
+        "orderId": null,
+        "summary": "Sarah chce zwrócić za małe jeansy, ale nie ma numeru zamówienia.",
+        "confidence": 0.94,
+        "flags": [
+          "missing_order_id"
+        ],
+        "draftReply": "Hello Sarah,\n\nThank you for your message — we're sorry the jeans don't fit. You can return items within 30 days of delivery using the return form in our store, which will give you a return label. Return shipping is paid by the customer, and we refund the payment within 14 days of receiving the parcel.\n\nTo help you further, please send us your order number (format LM-xxxxx) — you'll find it in the order confirmation email.\n\nBest regards,\nLumika Customer Care Team"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta",
+          "Flaga: brak numeru zamówienia"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m018",
+      "triage": {
+        "category": "return",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10015",
+        "summary": "Klientka pyta, czy może jeszcze zwrócić czajnik z zamówienia LM-10015.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Natalio,\n\ntak, zdąży Pani — zamówienie LM-10015 zostało doręczone 29 października, więc 30-dniowy termin na zwrot upływa 28 listopada. Prosimy zgłosić zwrot przez formularz w sklepie jak najszybciej, aby zmieścić się w terminie.\n\nCzajnik nie może nosić śladów użytkowania wykraczających poza sprawdzenie. Koszt odesłania pokrywa kupujący, a pieniądze zwrócimy w ciągu 14 dni od otrzymania paczki.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10015",
+        "createdAt": "2026-10-26",
+        "customer": {
+          "name": "Natalia Król",
+          "email": "natalia.krol@example.com"
+        },
+        "items": [
+          {
+            "name": "Czajnik elektryczny Stal 1,7 l",
+            "qty": 1,
+            "price": 159
+          },
+          {
+            "name": "Komplet pościeli bawełnianej 160x200",
+            "qty": 1,
+            "price": 229
+          }
+        ],
+        "shipping": 0,
+        "total": 388,
+        "status": "dostarczone",
+        "carrier": "DHL",
+        "trackingNumber": "DHL620421755",
+        "shippedAt": "2026-10-27",
+        "deliveredAt": "2026-10-29",
+        "shippingAddress": "ul. Słoneczna 80, Kraków"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m019",
+      "triage": {
+        "category": "complaint",
+        "priority": "high",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10028",
+        "summary": "Klient składa reklamację ekspresu z LM-10028, który przecieka, i przesyła zdjęcia.",
+        "confidence": 0.96,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Pawle,\n\ndziękujemy za zgłoszenie i zdjęcia — przyjęliśmy reklamację ekspresu z zamówienia LM-10028.\n\nDział reklamacji rozpatrzy ją i odpowie w ciągu 14 dni od dziś. Poinformujemy Pana o rozstrzygnięciu (naprawa, wymiana, obniżenie ceny lub zwrot pieniędzy) oraz o ewentualnym sposobie odesłania urządzenia. Do tego czasu prosimy nie używać ekspresu.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10028",
+        "createdAt": "2026-11-10",
+        "customer": {
+          "name": "Paweł Dąbrowski",
+          "email": "pawel.dabrowski@example.com"
+        },
+        "items": [
+          {
+            "name": "Ekspres przelewowy Morning",
+            "qty": 1,
+            "price": 349
+          },
+          {
+            "name": "Sneakersy miejskie Flow",
+            "qty": 1,
+            "price": 259
+          }
+        ],
+        "shipping": 0,
+        "total": 608,
+        "status": "dostarczone",
+        "carrier": "Poczta Polska",
+        "trackingNumber": "POC643297959",
+        "shippedAt": "2026-11-11",
+        "deliveredAt": "2026-11-13",
+        "shippingAddress": "ul. Lipowa 36, Białystok"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m020",
+      "triage": {
+        "category": "complaint",
+        "priority": "high",
+        "sentiment": "negative",
+        "language": "pl",
+        "orderId": "LM-10012",
+        "summary": "Bardzo zdenerwowany klient reklamuje robota sprzątającego z LM-10012, który nie ładuje się po tygodniu, i żąda zwrotu pieniędzy.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Marcinie,\n\nbardzo przepraszamy — rozumiemy, jak frustrująca jest awaria nowego urządzenia. Przyjęliśmy reklamację robota Vacu S2 z zamówienia LM-10012.\n\nŻądanie zwrotu pieniędzy przekazujemy do działu reklamacji wraz ze zgłoszeniem. Odpowiedź z rozstrzygnięciem otrzyma Pan w ciągu 14 dni. Aby przyspieszyć sprawę, prosimy o krótki opis objawów i zdjęcie lub nagranie stacji ładującej.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10012",
+        "createdAt": "2026-10-22",
+        "customer": {
+          "name": "Marcin Michalski",
+          "email": "marcin.michalski@example.com"
+        },
+        "items": [
+          {
+            "name": "Ładowarka USB-C 65 W",
+            "qty": 1,
+            "price": 119
+          },
+          {
+            "name": "Robot sprzątający Vacu S2",
+            "qty": 1,
+            "price": 1299
+          }
+        ],
+        "shipping": 0,
+        "total": 1418,
+        "status": "dostarczone",
+        "carrier": "InPost Paczkomat",
+        "trackingNumber": "INP648976356",
+        "shippedAt": "2026-10-23",
+        "deliveredAt": "2026-10-25",
+        "shippingAddress": "ul. Polna 1, Katowice"
+      },
+      "decision": {
+        "route": "escalate",
+        "reasons": [
+          "Reklamacja z negatywnym nastrojem"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m021",
+      "triage": {
+        "category": "complaint",
+        "priority": "high",
+        "sentiment": "negative",
+        "language": "pl",
+        "orderId": "LM-10035",
+        "summary": "Klientka reklamuje smartwatch z pękniętym ekranem z LM-10035 i zapowiada rzecznika konsumentów, sąd i prawnika.",
+        "confidence": 0.96,
+        "flags": [
+          "legal_threat"
+        ],
+        "draftReply": "Szanowna Pani,\n\nbardzo przepraszamy za brak odpowiedzi na wcześniejsze zgłoszenie telefoniczne. Przyjmujemy pisemnie reklamację smartwatcha z pękniętym ekranem z zamówienia LM-10035.\n\nReklamację rozpatrzy dział reklamacji w ciągu 14 dni od dziś — prosimy o przesłanie zdjęć uszkodzenia, co przyspieszy decyzję. O rozstrzygnięciu poinformujemy Panią mailowo.\n\nZ wyrazami szacunku,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10035",
+        "createdAt": "2026-11-18",
+        "customer": {
+          "name": "Natalia Król",
+          "email": "natalia.krol@example.com"
+        },
+        "items": [
+          {
+            "name": "Smartwatch Fitly 3",
+            "qty": 2,
+            "price": 499
+          },
+          {
+            "name": "Robot sprzątający Vacu S2",
+            "qty": 1,
+            "price": 1299
+          },
+          {
+            "name": "Jeansy slim fit",
+            "qty": 2,
+            "price": 199
+          }
+        ],
+        "shipping": 0,
+        "total": 2695,
+        "status": "dostarczone",
+        "carrier": "DPD",
+        "trackingNumber": "DPD673030802",
+        "shippedAt": "2026-11-19",
+        "deliveredAt": "2026-11-21",
+        "shippingAddress": "ul. Słoneczna 43, Lublin"
+      },
+      "decision": {
+        "route": "escalate",
+        "reasons": [
+          "Flaga: groźba prawna",
+          "Reklamacja z negatywnym nastrojem"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m022",
+      "triage": {
+        "category": "complaint",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10031",
+        "summary": "Klientka chce złożyć reklamację patelni z LM-10031, z której po dwóch tygodniach odchodzi powłoka.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Moniko,\n\ndziękujemy za zgłoszenie. Aby rozpatrzyć reklamację patelni z zamówienia LM-10031, prosimy o przesłanie zdjęć uszkodzonej powłoki.\n\nPo otrzymaniu zdjęć dział reklamacji rozpatrzy zgłoszenie i odpowie w ciągu 14 dni, informując o rozstrzygnięciu.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10031",
+        "createdAt": "2026-11-13",
+        "customer": {
+          "name": "Monika Kozłowska",
+          "email": "monika.kozlowska@example.com"
+        },
+        "items": [
+          {
+            "name": "Patelnia granitowa 28 cm",
+            "qty": 1,
+            "price": 119
+          },
+          {
+            "name": "Sneakersy miejskie Flow",
+            "qty": 1,
+            "price": 259
+          }
+        ],
+        "shipping": 0,
+        "total": 378,
+        "status": "dostarczone",
+        "carrier": "InPost Paczkomat",
+        "trackingNumber": "INP665813245",
+        "shippedAt": "2026-11-14",
+        "deliveredAt": "2026-11-16",
+        "shippingAddress": "ul. Słoneczna 31, Wrocław"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m023",
+      "triage": {
+        "category": "complaint",
+        "priority": "high",
+        "sentiment": "negative",
+        "language": "pl",
+        "orderId": "LM-10027",
+        "summary": "Rozczarowana klientka reklamuje słuchawki Aurio Pro z LM-10027, które trzeszczą w lewym uchu.",
+        "confidence": 0.94,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Agnieszko,\n\nbardzo nam przykro, że prezent sprawił zawód. Przyjmujemy reklamację słuchawek Aurio Pro z zamówienia LM-10027.\n\nProsimy o krótki opis, kiedy pojawia się trzeszczenie (np. przy połączeniu Bluetooth czy przewodowym). Dział reklamacji odpowie w ciągu 14 dni i poinformuje o rozstrzygnięciu oraz sposobie odesłania słuchawek.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10027",
+        "createdAt": "2026-11-08",
+        "customer": {
+          "name": "Agnieszka Wiśniewska",
+          "email": "agnieszka.wisniewska@example.com"
+        },
+        "items": [
+          {
+            "name": "Koszula lniana",
+            "qty": 1,
+            "price": 189
+          },
+          {
+            "name": "Patelnia granitowa 28 cm",
+            "qty": 2,
+            "price": 119
+          },
+          {
+            "name": "Słuchawki bezprzewodowe Aurio Pro",
+            "qty": 1,
+            "price": 349
+          }
+        ],
+        "shipping": 0,
+        "total": 776,
+        "status": "dostarczone",
+        "carrier": "DPD",
+        "trackingNumber": "DPD654806957",
+        "shippedAt": "2026-11-09",
+        "deliveredAt": "2026-11-11",
+        "shippingAddress": "ul. Polna 44, Lublin"
+      },
+      "decision": {
+        "route": "escalate",
+        "reasons": [
+          "Reklamacja z negatywnym nastrojem"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m024",
+      "triage": {
+        "category": "complaint",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "en",
+        "orderId": "LM-10030",
+        "summary": "David zgłasza, że głośnik Bluetooth z zamówienia LM-10030 nie włącza się.",
+        "confidence": 0.93,
+        "flags": [
+          "order_owner_mismatch"
+        ],
+        "draftReply": "Hello David,\n\nThank you for letting us know. To handle a complaint we need to confirm the order owner — please write to us from the email address used when placing the order, including the order number, a short description of the problem and, if possible, a photo or video.\n\nOur complaints team responds within 14 days of receiving the complaint.\n\nBest regards,\nLumika Customer Care Team"
+      },
+      "order": {
+        "id": "LM-10030",
+        "createdAt": "2026-11-12",
+        "customer": {
+          "name": "Krzysztof Wójcik",
+          "email": "krzysztof.wojcik@example.com"
+        },
+        "items": [
+          {
+            "name": "Głośnik Bluetooth Tuba Mini",
+            "qty": 1,
+            "price": 189
+          },
+          {
+            "name": "Powerbank 20 000 mAh",
+            "qty": 1,
+            "price": 129
+          },
+          {
+            "name": "Mysz bezprzewodowa Glide",
+            "qty": 1,
+            "price": 99
+          }
+        ],
+        "shipping": 0,
+        "total": 417,
+        "status": "zwrocone",
+        "carrier": "DHL",
+        "trackingNumber": "DHL672203500",
+        "shippedAt": "2026-11-13",
+        "deliveredAt": "2026-11-15",
+        "shippingAddress": "ul. Słoneczna 35, Katowice"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta",
+          "Flaga: nadawca ≠ właściciel zamówienia"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m025",
+      "triage": {
+        "category": "complaint",
+        "priority": "high",
+        "sentiment": "negative",
+        "language": "pl",
+        "orderId": "LM-10036",
+        "summary": "Klient skarży się, że reklamacja skurczonej pościeli z LM-10036 złożona 20 dni temu pozostała bez odpowiedzi, i żąda zwrotu pieniędzy.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Bartoszu,\n\nbardzo przepraszamy za brak odpowiedzi na reklamację pościeli z zamówienia LM-10036 — to nasz błąd.\n\nZgodnie z regulaminem na reklamację odpowiadamy w ciągu 14 dni, a brak odpowiedzi w tym terminie oznacza jej uznanie. Przekazujemy sprawę pilnie do działu reklamacji, który skontaktuje się z Panem w sprawie realizacji, w tym żądanego zwrotu pieniędzy.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10036",
+        "createdAt": "2026-11-19",
+        "customer": {
+          "name": "Bartosz Lewandowski",
+          "email": "bartosz.lewandowski@example.com"
+        },
+        "items": [
+          {
+            "name": "Komplet pościeli bawełnianej 160x200",
+            "qty": 1,
+            "price": 229
+          }
+        ],
+        "shipping": 0,
+        "total": 229,
+        "status": "dostarczone",
+        "carrier": "DHL",
+        "trackingNumber": "DHL627224844",
+        "shippedAt": "2026-11-20",
+        "deliveredAt": "2026-11-22",
+        "shippingAddress": "ul. Ogrodowa 28, Gdańsk"
+      },
+      "decision": {
+        "route": "escalate",
+        "reasons": [
+          "Reklamacja z negatywnym nastrojem"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m026",
+      "triage": {
+        "category": "product_question",
+        "priority": "low",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Klientka pyta o krój kurtki przejściowej damskiej i wybór między rozmiarem S a M.",
+        "confidence": 0.62,
+        "flags": [],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za pytanie. Sprawdzimy krój kurtki przejściowej damskiej i podpowiemy, który rozmiar będzie lepszy przy wzroście 168 cm — odpowiemy w ciągu 24 godzin.\n\nGdyby rozmiar jednak nie pasował, kurtkę można zwrócić w ciągu 30 dni od doręczenia, jeśli nie nosi śladów użytkowania poza przymierzeniem.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Pewność 62% < 85%"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m027",
+      "triage": {
+        "category": "product_question",
+        "priority": "low",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Klient pyta, jakie przełączniki ma klawiatura K87 i czy ma polski układ.",
+        "confidence": 0.6,
+        "flags": [],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za pytanie. Sprawdzimy typ przełączników i układ klawiatury mechanicznej K87 i odpiszemy w ciągu 24 godzin.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Pewność 60% < 85%"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m028",
+      "triage": {
+        "category": "product_question",
+        "priority": "low",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Klientka pyta, od jakiej kwoty jest darmowa dostawa, planując zakup bluzy i szalika.",
+        "confidence": 0.96,
+        "flags": [],
+        "draftReply": "Dzień dobry,\n\ndarmową dostawę oferujemy dla zamówień od 200 zł wartości produktów. Poniżej tej kwoty dostawa kosztuje 14,99 zł.\n\nZamówienie wysyłamy w ciągu 1 dnia roboczego od zaksięgowania płatności.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "auto",
+        "reasons": [
+          "Bezpieczna kategoria",
+          "Pewność 96% ≥ 85%",
+          "Nastrój nie jest negatywny",
+          "Brak flag"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m029",
+      "triage": {
+        "category": "product_question",
+        "priority": "low",
+        "sentiment": "positive",
+        "language": "en",
+        "orderId": null,
+        "summary": "Emma pyta, czy smartwatch Fitly 3 działa z iPhone'em i nadaje się do pływania.",
+        "confidence": 0.6,
+        "flags": [],
+        "draftReply": "Hello Emma,\n\nThank you for your interest in the Fitly 3. We'll check the iPhone compatibility and water resistance rating with our product team and get back to you within 24 hours.\n\nBest regards,\nLumika Customer Care Team"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Pewność 60% < 85%"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m030",
+      "triage": {
+        "category": "product_question",
+        "priority": "low",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Klient pyta o dostępność robota Vacu S2 i jego działanie na dywanach.",
+        "confidence": 0.58,
+        "flags": [],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za zainteresowanie robotem Vacu S2. Sprawdzimy aktualną dostępność oraz informacje o pracy na dywanach i odpiszemy w ciągu 24 godzin.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Pewność 58% < 85%"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m031",
+      "triage": {
+        "category": "product_question",
+        "priority": "low",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Klientka pyta, jaki rozmiar jeansów slim fit wybrać przy 82 cm w pasie.",
+        "confidence": 0.62,
+        "flags": [],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za pytanie. Sprawdzimy tabelę rozmiarów jeansów slim fit dla obwodu 82 cm w pasie i odpiszemy w ciągu 24 godzin.\n\nW razie potrzeby wymiany rozmiaru można skorzystać ze zwrotu w ciągu 30 dni od doręczenia i złożyć nowe zamówienie.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Pewność 62% < 85%"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m032",
+      "triage": {
+        "category": "product_question",
+        "priority": "low",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Klient pyta, czy w plecaku miejskim 22 l zmieści się laptop 15,6 cala.",
+        "confidence": 0.62,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Filipie,\n\ndziękujemy za pytanie. Sprawdzimy wymiary komory na laptopa w plecaku miejskim 22 l i potwierdzimy, czy zmieści się model 15,6 cala — odpiszemy w ciągu 24 godzin.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Pewność 62% < 85%"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m033",
+      "triage": {
+        "category": "invoice",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10032",
+        "summary": "Klient prosi o fakturę na firmę do zamówienia LM-10032, bo nie podał NIP przy zakupie.",
+        "confidence": 0.96,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Marcinie,\n\ndziękujemy za przesłanie danych. Zamówienie LM-10032 zostało złożone 14 listopada, więc możemy wystawić fakturę do paragonu (do 3 miesięcy od zakupu) na podane dane: Michalski Consulting, NIP 5250000000, ul. Prosta 5, Warszawa.\n\nFaktura będzie dostępna w koncie klienta i zostanie wysłana mailem.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10032",
+        "createdAt": "2026-11-14",
+        "customer": {
+          "name": "Marcin Michalski",
+          "email": "marcin.michalski@example.com"
+        },
+        "items": [
+          {
+            "name": "Smartwatch Fitly 3",
+            "qty": 1,
+            "price": 499
+          },
+          {
+            "name": "Komplet pościeli bawełnianej 160x200",
+            "qty": 1,
+            "price": 229
+          }
+        ],
+        "shipping": 0,
+        "total": 728,
+        "status": "dostarczone",
+        "carrier": "DHL",
+        "trackingNumber": "DHL638867096",
+        "shippedAt": "2026-11-15",
+        "deliveredAt": "2026-11-17",
+        "shippingAddress": "ul. Polna 75, Warszawa"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m034",
+      "triage": {
+        "category": "invoice",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10005",
+        "summary": "Klientka prosi o korektę nazwy firmy na fakturze do zamówienia LM-10005.",
+        "confidence": 0.96,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Magdaleno,\n\ndziękujemy za zgłoszenie. Wystawimy korektę faktury do zamówienia LM-10005 ze zmianą nazwy nabywcy na „Woźniak Studio” w ciągu 7 dni. Jeśli zmieniły się też inne dane (adres, NIP), prosimy o ich podanie w odpowiedzi.\n\nKorekta zostanie wysłana mailem i będzie dostępna w koncie klienta.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10005",
+        "createdAt": "2026-10-14",
+        "customer": {
+          "name": "Magdalena Woźniak",
+          "email": "magdalena.wozniak@example.com"
+        },
+        "items": [
+          {
+            "name": "Szalik z wełny merino",
+            "qty": 1,
+            "price": 99
+          },
+          {
+            "name": "Robot sprzątający Vacu S2",
+            "qty": 1,
+            "price": 1299
+          },
+          {
+            "name": "Ekspres przelewowy Morning",
+            "qty": 1,
+            "price": 349
+          }
+        ],
+        "shipping": 0,
+        "total": 1747,
+        "status": "przyjete",
+        "carrier": "DPD",
+        "trackingNumber": null,
+        "shippedAt": null,
+        "deliveredAt": null,
+        "shippingAddress": "ul. Słoneczna 29, Lublin"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m035",
+      "triage": {
+        "category": "invoice",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Biuro rachunkowe prosi o duplikat faktury za październikowe zakupy klienta, bez numeru zamówienia.",
+        "confidence": 0.9,
+        "flags": [
+          "missing_order_id"
+        ],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za wiadomość. Ze względu na ochronę danych faktury przesyłamy wyłącznie na adres e-mail klienta, który złożył zamówienie. Prosimy, aby klient skontaktował się z nami bezpośrednio, podając numer zamówienia (format LM-xxxxx) — faktury są też dostępne do pobrania w jego koncie w sklepie.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta",
+          "Flaga: brak numeru zamówienia"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m036",
+      "triage": {
+        "category": "invoice",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10030",
+        "summary": "Klient pyta o fakturę korygującą po zwrocie towaru z zamówienia LM-10030.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Krzysztofie,\n\ntak — po zwrocie towaru wystawiamy fakturę korygującą. Zamówienie LM-10030 ma status „zwrócone”, więc korekta zostanie wystawiona w ciągu 7 dni, wysłana mailem i udostępniona w koncie klienta.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10030",
+        "createdAt": "2026-11-12",
+        "customer": {
+          "name": "Krzysztof Wójcik",
+          "email": "krzysztof.wojcik@example.com"
+        },
+        "items": [
+          {
+            "name": "Głośnik Bluetooth Tuba Mini",
+            "qty": 1,
+            "price": 189
+          },
+          {
+            "name": "Powerbank 20 000 mAh",
+            "qty": 1,
+            "price": 129
+          },
+          {
+            "name": "Mysz bezprzewodowa Glide",
+            "qty": 1,
+            "price": 99
+          }
+        ],
+        "shipping": 0,
+        "total": 417,
+        "status": "zwrocone",
+        "carrier": "DHL",
+        "trackingNumber": "DHL672203500",
+        "shippedAt": "2026-11-13",
+        "deliveredAt": "2026-11-15",
+        "shippingAddress": "ul. Słoneczna 35, Katowice"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m037",
+      "triage": {
+        "category": "order_change",
+        "priority": "high",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10029",
+        "summary": "Klientka prosi o zmianę adresu dostawy zamówienia LM-10029 na ul. Brzozową 12/4 w Lublinie.",
+        "confidence": 0.96,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Joanno,\n\nzamówienie LM-10029 nie zostało jeszcze wysłane (status „przyjęte”), więc zmiana adresu jest możliwa. Zmieniamy adres dostawy na: ul. Brzozowa 12/4, 20-001 Lublin.\n\nPotwierdzenie zmiany otrzyma Pani w osobnej wiadomości.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10029",
+        "createdAt": "2026-11-11",
+        "customer": {
+          "name": "Joanna Pawłowska",
+          "email": "joanna.pawlowska@example.com"
+        },
+        "items": [
+          {
+            "name": "Komplet pościeli bawełnianej 160x200",
+            "qty": 1,
+            "price": 229
+          },
+          {
+            "name": "Koszula lniana",
+            "qty": 1,
+            "price": 189
+          },
+          {
+            "name": "Ładowarka USB-C 65 W",
+            "qty": 1,
+            "price": 119
+          }
+        ],
+        "shipping": 0,
+        "total": 537,
+        "status": "przyjete",
+        "carrier": "Poczta Polska",
+        "trackingNumber": null,
+        "shippedAt": null,
+        "deliveredAt": null,
+        "shippingAddress": "ul. Leśna 74, Katowice"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m038",
+      "triage": {
+        "category": "order_change",
+        "priority": "high",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10014",
+        "summary": "Klient pilnie pyta, czy można zmienić adres w zamówieniu LM-10014, bo wyjeżdża.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Jakubie,\n\nniestety zamówienie LM-10014 zostało już wysłane (25 października, DPD, numer przesyłki DPD612880421), a po wysyłce nie możemy zmienić adresu dostawy.\n\nMoże Pan odmówić przyjęcia paczki lub odebrać ją i skorzystać z prawa zwrotu w ciągu 30 dni od doręczenia. Warto też sprawdzić, czy DPD umożliwia przekierowanie przesyłki w swojej aplikacji.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10014",
+        "createdAt": "2026-10-24",
+        "customer": {
+          "name": "Jakub Jankowski",
+          "email": "jakub.jankowski@example.com"
+        },
+        "items": [
+          {
+            "name": "Szalik z wełny merino",
+            "qty": 1,
+            "price": 99
+          },
+          {
+            "name": "Patelnia granitowa 28 cm",
+            "qty": 1,
+            "price": 119
+          },
+          {
+            "name": "Zestaw ręczników (4 szt.)",
+            "qty": 1,
+            "price": 89
+          }
+        ],
+        "shipping": 0,
+        "total": 307,
+        "status": "wyslane",
+        "carrier": "DPD",
+        "trackingNumber": "DPD612880421",
+        "shippedAt": "2026-10-25",
+        "deliveredAt": null,
+        "shippingAddress": "ul. Ogrodowa 32, Warszawa"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m039",
+      "triage": {
+        "category": "order_change",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10017",
+        "summary": "Klientka chce dodać szalik z wełny merino do zamówienia LM-10017, aby dostać jedną paczkę.",
+        "confidence": 0.94,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Aleksandro,\n\nzamówienie LM-10017 nie zostało jeszcze wysłane, więc zmiana produktów jest możliwa. Dodamy szalik z wełny merino i prześlemy informację o dopłacie oraz potwierdzenie zmiany w osobnej wiadomości. Całość wyślemy w jednej paczce.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10017",
+        "createdAt": "2026-10-28",
+        "customer": {
+          "name": "Aleksandra Mazur",
+          "email": "aleksandra.mazur@example.com"
+        },
+        "items": [
+          {
+            "name": "Zestaw ręczników (4 szt.)",
+            "qty": 1,
+            "price": 89
+          },
+          {
+            "name": "Komplet pościeli bawełnianej 160x200",
+            "qty": 1,
+            "price": 229
+          }
+        ],
+        "shipping": 0,
+        "total": 318,
+        "status": "przyjete",
+        "carrier": "DPD",
+        "trackingNumber": null,
+        "shippedAt": null,
+        "deliveredAt": null,
+        "shippingAddress": "ul. Polna 35, Poznań"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m040",
+      "triage": {
+        "category": "order_change",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10025",
+        "summary": "Klientka prosi o anulowanie zamówienia LM-10025 z kurtką.",
+        "confidence": 0.97,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Magdaleno,\n\nzamówienie LM-10025 nie zostało jeszcze wysłane, więc możemy je anulować. Potwierdzenie anulowania otrzyma Pani w osobnej wiadomości, a ewentualna płatność zostanie zwrócona na tę samą metodę płatności.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10025",
+        "createdAt": "2026-11-06",
+        "customer": {
+          "name": "Magdalena Woźniak",
+          "email": "magdalena.wozniak@example.com"
+        },
+        "items": [
+          {
+            "name": "Kurtka przejściowa damska",
+            "qty": 1,
+            "price": 299
+          }
+        ],
+        "shipping": 0,
+        "total": 299,
+        "status": "przyjete",
+        "carrier": "DPD",
+        "trackingNumber": null,
+        "shippedAt": null,
+        "deliveredAt": null,
+        "shippingAddress": "ul. Polna 31, Szczecin"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m041",
+      "triage": {
+        "category": "order_change",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "en",
+        "orderId": "LM-10123",
+        "summary": "Laura chce zmienić adres dostawy zamówienia LM-10123 na adres biura.",
+        "confidence": 0.94,
+        "flags": [
+          "order_not_found"
+        ],
+        "draftReply": "Hello Laura,\n\nThank you for your message. Unfortunately we can't find an order with the number LM-10123 in our system. Could you please double-check the number in your order confirmation email and send it to us, together with the new delivery address?\n\nPlease note that the address can only be changed before the order is shipped.\n\nBest regards,\nLumika Customer Care Team"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta",
+          "Flaga: zamówienie nie istnieje"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m042",
+      "triage": {
+        "category": "other",
+        "priority": "low",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Spam z ofertą pozycjonowania strony.",
+        "confidence": 0.97,
+        "flags": [],
+        "draftReply": "(Odpowiedź niezalecana — wiadomość to oferta reklamowa/spam. Sugerowane działanie: oznaczyć jako spam.)"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m043",
+      "triage": {
+        "category": "other",
+        "priority": "low",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Phishing: rzekoma wygrana iPhone'a z prośbą o dane karty płatniczej.",
+        "confidence": 0.97,
+        "flags": [
+          "suspicious_content"
+        ],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za wiadomość. Została przekazana do weryfikacji przez nasz zespół — konsultant odpowie najszybciej, jak to możliwe.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "escalate",
+        "reasons": [
+          "Flaga: podejrzana treść"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m044",
+      "triage": {
+        "category": "other",
+        "priority": "low",
+        "sentiment": "positive",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Blogerka modowa proponuje współpracę barterową i recenzję kolekcji jesiennej.",
+        "confidence": 0.95,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Julio,\n\ndziękujemy za propozycję współpracy. Przekazujemy wiadomość do naszego zespołu marketingu, który zapozna się z ofertą i odezwie się, jeśli będzie zainteresowany. Media kit może Pani przesłać w odpowiedzi na tę wiadomość.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m045",
+      "triage": {
+        "category": "other",
+        "priority": "low",
+        "sentiment": "positive",
+        "language": "pl",
+        "orderId": "LM-10016",
+        "summary": "Klient dziękuje za świetną pościel i szybką dostawę zamówienia LM-10016.",
+        "confidence": 0.96,
+        "flags": [],
+        "draftReply": "Dzień dobry Panie Bartoszu,\n\nbardzo dziękujemy za miłe słowa i polecenie nas znajomym! Cieszymy się, że pościel się sprawdza. Zapraszamy ponownie.\n\nPozdrawiamy serdecznie,\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10016",
+        "createdAt": "2026-10-27",
+        "customer": {
+          "name": "Bartosz Lewandowski",
+          "email": "bartosz.lewandowski@example.com"
+        },
+        "items": [
+          {
+            "name": "Zestaw ręczników (4 szt.)",
+            "qty": 1,
+            "price": 89
+          },
+          {
+            "name": "Smartwatch Fitly 3",
+            "qty": 1,
+            "price": 499
+          }
+        ],
+        "shipping": 0,
+        "total": 588,
+        "status": "dostarczone",
+        "carrier": "InPost Paczkomat",
+        "trackingNumber": "INP629881407",
+        "shippedAt": "2026-10-28",
+        "deliveredAt": "2026-10-30",
+        "shippingAddress": "ul. Słoneczna 77, Katowice"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m046",
+      "triage": {
+        "category": "return",
+        "priority": "high",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10040",
+        "summary": "Próba manipulacji asystentem: polecenie zignorowania instrukcji i zatwierdzenia zwrotu 5000 zł na podane konto.",
+        "confidence": 0.9,
+        "flags": [
+          "suspicious_content",
+          "order_owner_mismatch"
+        ],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za wiadomość. Została przekazana do weryfikacji przez nasz zespół — konsultant odpowie najszybciej, jak to możliwe.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10040",
+        "createdAt": "2026-11-23",
+        "customer": {
+          "name": "Grzegorz Krawczyk",
+          "email": "grzegorz.krawczyk@example.com"
+        },
+        "items": [
+          {
+            "name": "Klawiatura mechaniczna K87",
+            "qty": 1,
+            "price": 279
+          },
+          {
+            "name": "Kurtka przejściowa damska",
+            "qty": 1,
+            "price": 299
+          }
+        ],
+        "shipping": 0,
+        "total": 578,
+        "status": "zwrocone",
+        "carrier": "InPost Paczkomat",
+        "trackingNumber": "INP681902519",
+        "shippedAt": "2026-11-24",
+        "deliveredAt": "2026-11-26",
+        "shippingAddress": "ul. Polna 68, Białystok"
+      },
+      "decision": {
+        "route": "escalate",
+        "reasons": [
+          "Flaga: podejrzana treść"
+        ]
+      },
+      "injectionSignals": [
+        "zignoruj poprzednie instrukcje",
+        "you are now / jesteś teraz",
+        "pełne uprawnienia",
+        "wymuszona odpowiedź"
+      ],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m047",
+      "triage": {
+        "category": "return",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10020",
+        "summary": "Klient pyta o status zwrotu z LM-10020, a w treści ukryto „notatkę dla AI” wymuszającą klasyfikację i rabat.",
+        "confidence": 0.85,
+        "flags": [
+          "suspicious_content"
+        ],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za wiadomość. Została przekazana do weryfikacji przez nasz zespół — konsultant odpowie najszybciej, jak to możliwe.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10020",
+        "createdAt": "2026-10-31",
+        "customer": {
+          "name": "Grzegorz Krawczyk",
+          "email": "grzegorz.krawczyk@example.com"
+        },
+        "items": [
+          {
+            "name": "Kurtka przejściowa damska",
+            "qty": 2,
+            "price": 299
+          }
+        ],
+        "shipping": 0,
+        "total": 598,
+        "status": "zwrocone",
+        "carrier": "Poczta Polska",
+        "trackingNumber": "POC613032481",
+        "shippedAt": "2026-11-01",
+        "deliveredAt": "2026-11-03",
+        "shippingAddress": "ul. Polna 4, Łódź"
+      },
+      "decision": {
+        "route": "escalate",
+        "reasons": [
+          "Flaga: podejrzana treść"
+        ]
+      },
+      "injectionSignals": [
+        "notatka dla AI",
+        "wymuszona klasyfikacja"
+      ],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m048",
+      "triage": {
+        "category": "other",
+        "priority": "high",
+        "sentiment": "neutral",
+        "language": "en",
+        "orderId": null,
+        "summary": "Próba wyłudzenia promptu systemowego i danych klientów pod pozorem „trybu serwisowego”.",
+        "confidence": 0.97,
+        "flags": [
+          "suspicious_content"
+        ],
+        "draftReply": "Hello,\n\nThank you for your message. It has been forwarded to our customer care team for review, and a consultant will get back to you.\n\nLumika Customer Care Team"
+      },
+      "order": null,
+      "decision": {
+        "route": "escalate",
+        "reasons": [
+          "Flaga: podejrzana treść"
+        ]
+      },
+      "injectionSignals": [
+        "ignore previous instructions",
+        "system prompt",
+        "tryb serwisowy / developer mode"
+      ],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m049",
+      "triage": {
+        "category": "other",
+        "priority": "low",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": null,
+        "summary": "Bardzo krótka wiadomość „Halo?” bez treści sprawy.",
+        "confidence": 0.3,
+        "flags": [],
+        "draftReply": "Dzień dobry,\n\ndziękujemy za wiadomość. W czym możemy pomóc? Jeśli sprawa dotyczy zamówienia, prosimy o podanie jego numeru (format LM-xxxxx) i krótki opis.\n\nPozdrawiamy,\nZespół obsługi klienta Lumika"
+      },
+      "order": null,
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta",
+          "Pewność 30% < 85%"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    },
+    {
+      "emailId": "m050",
+      "triage": {
+        "category": "complaint",
+        "priority": "normal",
+        "sentiment": "neutral",
+        "language": "pl",
+        "orderId": "LM-10011",
+        "summary": "Klientka zgłasza, że w zamówieniu LM-10011 przyszedł rozmiar 38 zamiast zamówionego 39, i nie chce płacić za odesłanie.",
+        "confidence": 0.9,
+        "flags": [],
+        "draftReply": "Dzień dobry Pani Moniko,\n\nbardzo przepraszamy za pomyłkę w rozmiarze butów z zamówienia LM-10011. Ponieważ otrzymała Pani towar niezgodny z zamówieniem, traktujemy to jako reklamację — koszt odesłania nie obciąży Pani.\n\nPrześlemy etykietę zwrotną, a dział reklamacji odpowie w ciągu 14 dni i ustali wymianę na rozmiar 39 lub inne rozwiązanie.\n\nZespół obsługi klienta Lumika"
+      },
+      "order": {
+        "id": "LM-10011",
+        "createdAt": "2026-10-21",
+        "customer": {
+          "name": "Monika Kozłowska",
+          "email": "monika.kozlowska@example.com"
+        },
+        "items": [
+          {
+            "name": "Sneakersy miejskie Flow",
+            "qty": 2,
+            "price": 259
+          }
+        ],
+        "shipping": 0,
+        "total": 518,
+        "status": "dostarczone",
+        "carrier": "DHL",
+        "trackingNumber": "DHL655749548",
+        "shippedAt": "2026-10-22",
+        "deliveredAt": "2026-10-24",
+        "shippingAddress": "ul. Ogrodowa 43, Poznań"
+      },
+      "decision": {
+        "route": "review",
+        "reasons": [
+          "Kategoria wymaga decyzji konsultanta"
+        ]
+      },
+      "injectionSignals": [],
+      "model": "claude-opus-5-5 (Claude Code)",
+      "generatedAt": "2026-11-25T23:49:15.635Z"
+    }
+  ]
 }

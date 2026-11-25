@@ -73,20 +73,8 @@ async function draft(args: Parameters<typeof draftUserPrompt>[0]): Promise<strin
   return response.parsed_output.draftReply.trim();
 }
 
-/**
- * Pełny triage jednego maila:
- * 1. model: analiza → 2. kod: zamówienie z „API sklepu”, flagi, heurystyka injection →
- * 3. model: szkic (pomijany przy podejrzanej treści) → 4. kod: decyzja o ścieżce.
- */
-export async function triageEmail(email: EmailInput): Promise<TriageResult> {
-  if (email.body.length > MAX_EMAIL_CHARS) {
-    throw new TriageError(`Mail jest za długi (maks. ${MAX_EMAIL_CHARS} znaków).`);
-  }
-
-  // 1) Analiza modelem
-  const { analysis, refused } = await analyze(email);
-
-  // 2) Dane z systemu sklepu + flagi liczone przez kod
+/** Krok 2: dane z „API sklepu” i flagi liczone przez kod (bez wywołań modelu). */
+export function codeChecks(email: EmailInput, analysis: Analysis, refused = false) {
   const fullText = `${email.subject ?? ""}\n${email.body}`;
   const orderId = normalizeOrderId(analysis.orderId) ?? findOrderIdInText(fullText);
   const order = getOrder(orderId);
@@ -100,40 +88,76 @@ export async function triageEmail(email: EmailInput): Promise<TriageResult> {
     injectionSignals,
   });
   const flags: Flag[] = mergeFlags(analysis.flags, codeFlags, refused ? ["model_refusal"] : []);
-  const ownerMismatch = flags.includes("order_owner_mismatch");
+  return {
+    orderId,
+    order,
+    injectionSignals,
+    flags,
+    ownerMismatch: flags.includes("order_owner_mismatch"),
+    /** Przy podejrzanej treści (albo odmowie) model nie pisze szkicu. */
+    skipDraft: flags.includes("suspicious_content") || refused,
+  };
+}
 
-  // 3) Szkic — przy podejrzanej treści model nie dostaje drugiej szansy na manipulację
+/** Krok 4: decyzja o ścieżce (kod, nie model) i złożenie wyniku. */
+export function finalizeResult(args: {
+  analysis: Analysis;
+  checks: ReturnType<typeof codeChecks>;
+  draftReply: string | null;
+  model: string;
+}): TriageResult {
+  const { analysis, checks, model } = args;
+  const flags = [...checks.flags];
   let draftReply: string;
-  if (flags.includes("suspicious_content") || refused) {
+  if (checks.skipDraft) {
+    draftReply = holdingReply(analysis.language);
+  } else if (args.draftReply === null) {
+    flags.push("model_refusal");
     draftReply = holdingReply(analysis.language);
   } else {
-    const d = await draft({ email, analysis, order, orderIdRequested: orderId, ownerMismatch });
-    if (d === null) {
-      flags.push("model_refusal");
-      draftReply = holdingReply(analysis.language);
-    } else {
-      draftReply = d;
-    }
+    draftReply = args.draftReply;
   }
 
-  // 4) Decyzja o ścieżce — kod, nie model
   const decision = decideRoute({
     category: analysis.category,
     sentiment: analysis.sentiment,
     confidence: analysis.confidence,
     flags,
-    orderFound: order !== null,
+    orderFound: checks.order !== null,
   });
 
   return {
-    triage: { ...analysis, orderId, flags, draftReply },
+    triage: { ...analysis, confidence: clamp01(analysis.confidence), orderId: checks.orderId, flags, draftReply },
     // Konsultant widzi zamówienie zawsze; do szkicu dla klienta przy niezgodności właściciela trafia tylko informacja o niej.
-    order,
+    order: checks.order,
     decision,
-    injectionSignals,
-    model: TRIAGE_MODEL,
+    injectionSignals: checks.injectionSignals,
+    model,
     generatedAt: new Date().toISOString(),
   };
+}
+
+/**
+ * Pełny triage jednego maila:
+ * 1. model: analiza → 2. kod: zamówienie z „API sklepu”, flagi, heurystyka injection →
+ * 3. model: szkic (pomijany przy podejrzanej treści) → 4. kod: decyzja o ścieżce.
+ */
+export async function triageEmail(email: EmailInput): Promise<TriageResult> {
+  if (email.body.length > MAX_EMAIL_CHARS) {
+    throw new TriageError(`Mail jest za długi (maks. ${MAX_EMAIL_CHARS} znaków).`);
+  }
+  const { analysis, refused } = await analyze(email);
+  const checks = codeChecks(email, analysis, refused);
+  const draftReply = checks.skipDraft
+    ? null
+    : await draft({
+        email,
+        analysis,
+        order: checks.order,
+        orderIdRequested: checks.orderId,
+        ownerMismatch: checks.ownerMismatch,
+      });
+  return finalizeResult({ analysis, checks, draftReply, model: TRIAGE_MODEL });
 }
 
 function clamp01(x: number): number {

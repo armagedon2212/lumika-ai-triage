@@ -18,7 +18,7 @@ Sklep internetowy dostaje dziesiątki maili dziennie: „gdzie paczka?”, zwrot
 
 Każdy mail przechodzi przez pipeline:
 
-1. **AI (Claude Haiku 5.5) analizuje mail.** Zwraca kategorię, priorytet, nastrój, język, numer zamówienia, jednozdaniowe podsumowanie, pewność i flagi. Odpowiedź jest ustrukturyzowanym JSON-em walidowanym przez Zod.
+1. **AI (Claude) analizuje mail.** Zwraca kategorię, priorytet, nastrój, język, numer zamówienia, jednozdaniowe podsumowanie, pewność i flagi. Odpowiedź jest ustrukturyzowanym JSON-em walidowanym przez Zod.
 2. **Kod sprawdza zamówienie** w „API sklepu” (`GET /api/orders/[id]`). Sam dokłada flagi: brak numeru, nieistniejące zamówienie, nadawca inny niż właściciel zamówienia, podejrzana treść wykryta heurystyką.
 3. **AI pisze szkic odpowiedzi** w języku klienta. Opiera się wyłącznie na [regulaminie](data/policies.md) i danych zamówienia.
 4. **Kod decyduje o ścieżce** ([`lib/routing.ts`](lib/routing.ts)):
@@ -89,11 +89,22 @@ Trzy maile w danych przykładowych to próby manipulacji (`m046`–`m048`), np. 
 
 ## Ochrona przed kosztami
 
-- **Wyniki policzone wcześniej.** `scripts/precompute.ts` przepuszcza 50 maili przez model raz i zapisuje `data/results.json` do repo. Przeglądanie skrzynki, szczegółów i dashboardu **nie wywołuje API**.
+- **Wyniki policzone wcześniej.** Wyniki dla 50 maili są zapisane w `data/results.json` w repo. Przeglądanie skrzynki, szczegółów i dashboardu **nie wywołuje API**. Skąd pochodzą wyniki, opisuje sekcja [Skąd są wyniki w skrzynce](#skąd-są-wyniki-w-skrzynce).
 - **Na żywo tylko „Wklej własnego maila”.** Rate limit w Upstash Redis: **10 prób na IP dziennie** i **globalny limit dzienny** (domyślnie 200), oba konfigurowalne. Bez zmiennych Upstash endpoint jest wyłączony z czytelnym komunikatem, a reszta demo działa.
 - **Limity wejścia.** Maks. 3000 znaków maila, walidacja Zod, ograniczone `max_tokens`.
 - **Tani model.** Claude Haiku 5.5 z `effort: "low"`, czyli ułamek grosza za mail (2 wywołania).
 - **Klucz API tylko po stronie serwera** (`.env.local`, zmienne środowiskowe Vercela). Nigdy nie trafia do przeglądarki.
+
+## Skąd są wyniki w skrzynce
+
+Repo ma dwie równoważne drogi do `data/results.json`. Obie przechodzą przez **ten sam kod**: walidację Zod, wyszukanie zamówienia, flagi kodu, heurystykę anty-injection i `decideRoute`.
+
+| Droga | Kto jest „modelem” | Koszt |
+|---|---|---|
+| `npm run precompute` | Claude Haiku 5.5 przez Claude API (wymaga klucza i środków) | ok. kilka centów |
+| `npm run import-triage` | analizy i szkice zapisane w [`data/claude-code-triage.json`](data/claude-code-triage.json) | 0 zł |
+
+**Wersja w repo powstała drugą drogą.** Analizy i szkice napisał Claude (Opus 5.5) w sesji Claude Code, według tych samych promptów z [`lib/prompts.ts`](lib/prompts.ts), zamiast płatnego wywołania API. Pole `model` w wynikach mówi to wprost. Decyzje o ścieżce, flagi i dane zamówień liczy kod, tak jak w produkcji. Po doładowaniu API wystarczy `npm run precompute`, żeby zastąpić je wynikami Haiku.
 
 ## Jak liczone są metryki (i jakie są założenia)
 
@@ -117,12 +128,13 @@ To szacunki, nie pomiary. Pominięto czas działania modelu i koszt API.
 
 ## Uruchomienie lokalne
 
-Wymagania: Node 20+ i klucz [Claude API](https://console.anthropic.com/).
+Wymagania: Node 20+. Klucz [Claude API](https://console.anthropic.com/) jest potrzebny tylko do triage na żywo i `precompute`. Skrzynka i dashboard działają bez niego.
 
 ```bash
 npm install
 cp .env.example .env.local      # uzupełnij ANTHROPIC_API_KEY (reszta opcjonalna)
-npm run precompute              # generuje data/results.json (~100 wywołań Haiku, kilka centów)
+npm run import-triage           # (opcjonalnie) odtwarza data/results.json bez API
+npm run precompute              # albo: generuje data/results.json przez Claude API (~100 wywołań Haiku, kilka centów)
 npm run dev                     # http://localhost:3000
 ```
 
@@ -139,10 +151,10 @@ Triage na żywo lokalnie wymaga też `UPSTASH_REDIS_REST_URL` i `UPSTASH_REDIS_R
 
 ## Wdrożenie na Vercelu
 
-1. Wypchnij repozytorium na GitHub. Upewnij się, że `data/results.json` jest wygenerowany i zacommitowany.
+1. Wypchnij repozytorium na GitHub (`data/results.json` jest już w repo).
 2. W Vercelu: **Add New → Project → Import** z GitHuba. Framework wykryje się sam (Next.js).
 3. **Settings → Environment Variables** (Production):
-   - `ANTHROPIC_API_KEY`: klucz Claude API (najlepiej osobny, z limitem wydatków w konsoli Anthropic);
+   - `ANTHROPIC_API_KEY`: klucz Claude API (najlepiej osobny, z limitem wydatków w konsoli Anthropic). Bez niego „Wklej własnego maila” jest wyłączone, a reszta demo działa;
    - `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`: najprościej przez **Vercel Marketplace → Upstash Redis**, który ustawi je automatycznie;
    - opcjonalnie `LIVE_LIMIT_PER_IP_PER_DAY`, `LIVE_LIMIT_GLOBAL_PER_DAY`;
    - opcjonalnie `TRIAGE_API_SECRET`, tylko jeśli chcesz podłączyć n8n.
@@ -184,6 +196,7 @@ Odpowiedź: `{ route, reasons, triage: { category, priority, sentiment, language
 - Panel do edycji regulaminu i progów reguł (bez deployu).
 - Pętla uczenia: poprawki konsultantów jako zestaw ewaluacyjny do strojenia promptów.
 - Integracja z prawdziwym API sklepu / przewoźników (tracking na żywo).
+- Katalog produktów (specyfikacje, tabele rozmiarów, stany), żeby pytania o produkt mogły częściej przechodzić automatycznie. Dziś model obniża pewność, gdy nie ma danych, i mail trafia do konsultanta.
 - Załączniki (zdjęcia reklamacji) i analiza obrazów.
 - Metryki z pomiarów (czas obsługi, CSAT) zamiast założeń.
 
@@ -191,6 +204,6 @@ Odpowiedź: `{ route, reasons, triage: { category, priority, sentiment, language
 
 ## English summary
 
-**Lumika AI-triage** is a portfolio demo for a fictional online store (sample data only). Incoming customer emails are analysed by **Claude Haiku 5.5**: category, priority, sentiment, language, order ID, summary, confidence and flags, returned as structured JSON validated with Zod. The app looks up the order in a mock store API and drafts a reply grounded only in the store policy. **The routing decision is made by tested code, not by the model:** `auto` (safe categories, high confidence, no flags), `review` (an agent approves the draft) or `escalate` (negative complaints, legal threats, suspicious content). Prompt-injection attempts are handled in layers: the email is treated as data, the model flags it, a code-side heuristic flags it independently, and no draft is generated. Results for the 50 sample emails are precomputed, so browsing costs nothing. Only the "paste your own email" page calls the API live, behind an Upstash rate limit. Includes a dashboard with editable time-saving assumptions and an importable **n8n** workflow (Gmail → `/api/triage` → Gmail reply / Gmail draft / Slack).
+**Lumika AI-triage** is a portfolio demo for a fictional online store (sample data only). Incoming customer emails are analysed by **Claude** (Haiku 5.5 via the API): category, priority, sentiment, language, order ID, summary, confidence and flags, returned as structured JSON validated with Zod. The app looks up the order in a mock store API and drafts a reply grounded only in the store policy. **The routing decision is made by tested code, not by the model:** `auto` (safe categories, high confidence, no flags), `review` (an agent approves the draft) or `escalate` (negative complaints, legal threats, suspicious content). Prompt-injection attempts are handled in layers: the email is treated as data, the model flags it, a code-side heuristic flags it independently, and no draft is generated. Results for the 50 sample emails are precomputed, so browsing costs nothing. The committed results were produced by Claude inside a Claude Code session, using the same prompts, instead of a paid API run. They then pass through the same code path: Zod validation, order lookup, code-side flags and routing. `npm run precompute` regenerates them via the API. Only the "paste your own email" page calls the API live, behind an Upstash rate limit. Includes a dashboard with editable time-saving assumptions and an importable **n8n** workflow (Gmail → `/api/triage` → Gmail reply / Gmail draft / Slack).
 
 Built with Claude Code.

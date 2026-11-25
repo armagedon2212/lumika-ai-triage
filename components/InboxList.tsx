@@ -45,7 +45,7 @@ export function InboxList({ items, hasResults }: { items: InboxItem[]; hasResult
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">Skrzynka obsługi klienta</h1>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            {items.length} maili · wyniki AI policzone wcześniej (przeglądanie nic nie kosztuje)
+            {items.length} maili · wyniki AI policzone wcześniej przez Claude, decyzje o ścieżce przez kod (przeglądanie nic nie kosztuje)
           </p>
         </div>
         <button
