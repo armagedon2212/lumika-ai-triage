@@ -2,7 +2,7 @@
 
 > **Fikcyjny sklep, dane przykładowe.** Demo do portfolio pokazujące, jak AI usprawnia realny proces biznesowy: obsługę maili od klientów sklepu internetowego.
 
-🔗 **Demo:** _(link po wdrożeniu)_ · Zbudowane z [Claude Code](https://claude.com/claude-code)
+🔗 **Demo:** https://lumika-ai-triage.vercel.app · Zbudowane z [Claude Code](https://claude.com/claude-code)
 
 <!-- Zrzuty ekranu: dodaj pliki do docs/screenshots/ i odkomentuj
 ![Skrzynka](docs/screenshots/inbox.png)

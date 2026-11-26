@@ -46,8 +46,12 @@ export function getLimiters(): Limiters | null {
   const perIpLimit = intEnv("LIVE_LIMIT_PER_IP_PER_DAY", 10);
   const globalLimit = intEnv("LIVE_LIMIT_GLOBAL_PER_DAY", 200);
 
-  if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
-    const redis = Redis.fromEnv();
+  // Integracja Upstash z Vercel Marketplace ustawia KV_REST_API_*; ręczna konfiguracja — UPSTASH_REDIS_REST_*.
+  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+
+  if (url && token) {
+    const redis = new Redis({ url, token });
     cached = {
       perIp: new Ratelimit({ redis, limiter: Ratelimit.fixedWindow(perIpLimit, "1 d"), prefix: "lumika:live:ip" }),
       global: new Ratelimit({ redis, limiter: Ratelimit.fixedWindow(globalLimit, "1 d"), prefix: "lumika:live:global" }),
